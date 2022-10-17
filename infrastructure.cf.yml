@@ -43,6 +43,12 @@ Resources:
         Aliases:
           - cariad.earth
           - www.cariad.earth
+        CustomErrorResponses:
+          - ErrorCachingMinTTL: 60
+            ErrorCode: 404
+            ResponseCode: 404
+            ResponsePagePath: /404/index.html
+
         DefaultCacheBehavior: # cspell:disable-line
           AllowedMethods:
             - GET
@@ -128,7 +134,7 @@ Resources:
 
         SecurityHeadersConfig:
           ContentSecurityPolicy:
-            ContentSecurityPolicy: "script-src-elem cdn.usefathom.com; default-src 'self'; img-src 'self' cdn.usefathom.com;" # cspell:disable-line
+            ContentSecurityPolicy: "script-src-elem 'self' 'unsafe-inline' cdn.usefathom.com; default-src 'self'; img-src 'self' data: cdn.usefathom.com;" # cspell:disable-line
             Override: true
 
           ContentTypeOptions:
@@ -192,6 +198,14 @@ Resources:
         Ref: Bucket
       PolicyDocument:
         Statement:
+          - Action: s3:ListBucket
+            Effect: Allow
+            Principal:
+              AWS:
+                Fn::Sub: arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ${CloudFrontOriginAccessIdentity}
+            Resource:
+              Fn::Sub: arn:aws:s3:::${Bucket}
+
           - Action: s3:GetObject
             Effect: Allow
             Principal:

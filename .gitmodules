@@ -1,0 +1,3 @@
+[submodule "themes/earth"]
+	path = themes/earth
+	url = https://github.com/cariad/earth.git

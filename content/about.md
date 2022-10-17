@@ -1,8 +1,10 @@
 ---
 date: 2022-10-16T07:00:00+00:00
+include_greeting: false
+on_side: true
 summary: Cariad Eccleston is an independent DevOps contractor.
-title: Hello! I'm Cariad! 👋
-hide_bio: true
+title: Hello! I'm Cariad!&nbsp;👋
+weight: 1
 ---
 
 Hello! I'm **Cariad Eccleston**, and I'm a DevOps contractor working remotely from sunny Devon, UK.
@@ -65,7 +67,7 @@ In late 2019 I seized an opportunity to become my own boss, and ever since I've 
 
 One of my proudest achievements during my self-employment was being [recognised for my contributions to **Boto3**](https://github.com/cariad?tab=achievements&achievement=mars-2020-contributor) which was used during NASA's Mars 2020 Helicopter Mission.
 
-{{< large-image mars_helicopter_badge >}}
+{{< image mars_helicopter_badge >}}
 
 I also built **wa11y.co**, which was possibly -- based on organic Twitter recommendations -- the world's most popular Wordle accessibility tool during the early 2022 craze. It wasn't beautiful, but it translated emoji-based Wordle endgames into readable text and made the game's social sharing accessible to a much greater number of folks.
 
