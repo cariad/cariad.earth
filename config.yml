@@ -1,0 +1,25 @@
+author:
+  name: Cariad Eccleston
+  twitter:
+    creator: "@CariadEccleston"
+baseURL: https://cariad.earth/
+languageCode: en-gb
+params:
+  avatar: cariad
+  fathom: XQFCCTSZ  # cspell:disable-line
+  favicon: 🚀
+  greeting: Hello! I'm **Cariad Eccleston**! I'm a DevOps contractor and open source developer. [Read more...](/about/)
+  opengraph:  # cspell:disable-line
+    image: opengraph.png  # cspell:disable-line
+theme: earth
+title: cariad.earth
+markup:
+  goldmark: # cspell:disable-line
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false
+  tableOfContents:
+    endLevel: 3
+    ordered: false
+    startLevel: 2
