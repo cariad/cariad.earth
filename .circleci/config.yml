@@ -1,0 +1,58 @@
+version: 2.1
+
+executors:
+  hugo:
+    docker:
+      - image: cariad/hugo
+        auth:
+          username: $DOCKER_HUB_USERNAME
+          password: $DOCKER_HUB_PASSWORD
+    working_directory: /tmp/workspace
+
+jobs:
+  build:
+    executor: hugo
+    steps:
+      - checkout
+      - run: hugo --minify
+      - run: cp headers.yml public
+      - persist_to_workspace:
+          root: public
+          paths:
+            - "*"
+
+  publish_dry_run:
+    executor: hugo
+    steps:
+      - attach_workspace:
+          at: /tmp/public
+      - run: cd /tmp/public && aws s3 sync --dryrun --delete . s3://$BUCKET # cspell:disable-line
+
+  publish:
+    executor: hugo
+    steps:
+      - attach_workspace:
+          at: /tmp/public
+      - run: cd /tmp/public && aws s3 sync --delete . s3://$BUCKET
+      - run: s3headersetter -config /tmp/public/headers.yml -bucket $BUCKET # cspell:disable-line
+
+workflows:
+  deploy:
+    jobs:
+      - build
+
+      - publish_dry_run:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore:
+                - main
+
+      - publish:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - main
