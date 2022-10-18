@@ -11,10 +11,11 @@ executors:
 
 jobs:
   build:
+    environment:
+      - GIT_LFS_SKIP_SMUDGE: 1
     executor: hugo
     steps:
       - checkout
-      - run: git config lfs.https://github.com/cariad/earth.git.access basic
       - run: git submodule update --init
       - run: hugo --minify
       - run: cp headers.yml public
