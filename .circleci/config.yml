@@ -11,13 +11,14 @@ executors:
 
 jobs:
   build:
-    environment:
-      - GIT_LFS_SKIP_SMUDGE: 1
+    # environment:
+    #   - GIT_LFS_SKIP_SMUDGE: 1
     executor: hugo
     steps:
       - checkout
+      - run: git submodule sync
       - run: git submodule update --init
-      - run: git lfs pull
+      # - run: git lfs pull
       - run: hugo --minify
       - run: cp headers.yml public
       - persist_to_workspace:
