@@ -15,22 +15,10 @@ jobs:
       - GIT_LFS_SKIP_SMUDGE: 1
     executor: hugo
     steps:
-      - restore_cache:
-          keys:
-            - src-{{ .Branch }}
-            - src-
-
       - checkout
       - run: git submodule sync
       - run: git submodule update --init
       - run: git lfs pull
-      - save_cache:
-          key: src-{{ .Branch }}
-          paths:
-            - content
-            - resources
-            - static
-            - themes
       - run: hugo --minify
       - run: cp headers.yml public
       - persist_to_workspace:
