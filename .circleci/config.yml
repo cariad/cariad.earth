@@ -11,33 +11,13 @@ executors:
 
 jobs:
   build:
-    environment:
-      # Don't pull LFS objects during checkout because it'll moan about
-      # credentials. We'll pull when we're good and ready.
-      - GIT_LFS_SKIP_SMUDGE: 1
     executor: hugo
     steps:
       - checkout
-
-      # Okay, *now* pull LFS objects for this repository. This won't include any
-      # submodules, so we'll sort them out later.
-      - run: git lfs pull
-
-      # Pull submodules. This won't include LFS objects.
       - run: git submodule sync
       - run: git submodule update --init
-
-      # Okay, *now* pull LFS objects for the themes/earth submodule.
-      - run: pushd themes/earth && git lfs pull && popd # cspell:disable-line
-
-      # Build the website.
       - run: hugo --minify
-
-      # We need to pass headers.yml through to the build job so we can set S3
-      # object headers after uploading.
       - run: cp headers.yml public
-
-      # Save our hard work so we can publish it later.
       - persist_to_workspace:
           root: public
           paths:
