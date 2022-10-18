@@ -7,5 +7,8 @@ rules:
 
   - header: Content-Type
     when:
+      - extension: .webp  # cspell:disable-line
+        then: image/webp  # cspell:disable-line
+
       - extension: .woff2
         then: font/woff2
