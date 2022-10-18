@@ -17,6 +17,7 @@ jobs:
     steps:
       - checkout
       - run: git submodule update --init
+      - run: git lfs pull
       - run: hugo --minify
       - run: cp headers.yml public
       - persist_to_workspace:
