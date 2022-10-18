@@ -1,0 +1,75 @@
+version: 2.1
+
+executors:
+  hugo:
+    docker:
+      - image: cariad/hugo
+        auth:
+          username: $DOCKER_HUB_USERNAME
+          password: $DOCKER_HUB_PASSWORD
+    working_directory: /tmp/workspace
+
+jobs:
+  build:
+    environment:
+      - GIT_LFS_SKIP_SMUDGE: 1
+    executor: hugo
+    steps:
+      - restore_cache:
+          keys:
+            - src-{{ .Branch }}
+            - src-
+
+      - checkout
+      - run: git submodule sync
+      - run: git submodule update --init
+      - run: git lfs pull
+      - save_cache:
+          key: src-{{ .Branch }}
+          paths:
+            - content
+            - resources
+            - static
+            - themes
+      - run: hugo --minify
+      - run: cp headers.yml public
+      - persist_to_workspace:
+          root: public
+          paths:
+            - "*"
+
+  publish_dry_run:
+    executor: hugo
+    steps:
+      - attach_workspace:
+          at: /tmp/public
+      - run: cd /tmp/public && aws s3 sync --dryrun --delete . s3://$BUCKET # cspell:disable-line
+
+  publish:
+    executor: hugo
+    steps:
+      - attach_workspace:
+          at: /tmp/public
+      - run: cd /tmp/public && aws s3 sync --delete . s3://$BUCKET
+      - run: s3headersetter -config /tmp/public/headers.yml -bucket $BUCKET # cspell:disable-line
+
+workflows:
+  deploy:
+    jobs:
+      - build
+
+      - publish_dry_run:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore:
+                - main
+
+      - publish:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - main
