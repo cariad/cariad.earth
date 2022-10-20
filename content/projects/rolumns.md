@@ -1,9 +1,10 @@
 ---
-date: 2022-10-16T07:00:00+00:00
+date: 2022-10-20
 image:
   name: near_earth_objects_table
+lastMod: 2022-10-20
+summary: Rolumns is a Python package that squishes data into rows and columns.
 title: Rolumns
-summary: squeeze
 ---
 
 Rolumns is a Python package I released in October 2022 to squish data into rows and columns.
@@ -131,8 +132,10 @@ workbook.save("render.xlsx")
 
 {{< image rolumns_xlsx >}}
 
-## More examples
+## More information
 
 I've published a decent series of examples in the [Rolumns Cook Book](https://rolumns.dev/cook-book/) which include grouping by lists, objects and dictionaries, converting data types and building dynamic values, and user-defined fields.
 
 I also have a GitHub repository at [cariad/rolumns-examples](https://github.com/cariad/rolumns-examples) with some examples that hit public APIs to generate interesting tables, like [Who's in Space Right Now?](https://github.com/cariad/rolumns-examples/blob/main/who_in_space.py) and [Which Near-Earth Objects Will Approach Earth This Week?](https://github.com/cariad/rolumns-examples/blob/main/neo.py).
+
+Rolumns is released under the MIT Licence and the source code is available at [cariad/rolumns](https://github.com/cariad/rolumns).
