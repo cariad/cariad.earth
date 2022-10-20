@@ -10,7 +10,7 @@ params:
   favicon: 🚀
   greeting: Hello! I'm **Cariad Eccleston**! I'm a DevOps contractor and open source developer. [Read more...](/about/)
   opengraph:  # cspell:disable-line
-    image: opengraph.png  # cspell:disable-line
+    image: opengraph  # cspell:disable-line
 theme: earth
 title: cariad.earth
 markup:

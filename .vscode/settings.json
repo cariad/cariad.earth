@@ -6,6 +6,10 @@
     "Digita",
     "Freyda",
     "microservices",
+    "OpenGraph",
+    "openpyxl",
+    "Rolumns",
     "Wordle"
-  ]
+  ],
+  "editor.rulers": [60],
 }
