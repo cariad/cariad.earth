@@ -77,4 +77,6 @@ And no, I didn't get any of that sweet New York Times coin, and I'm not even sli
 
 As and when I get sick of talking to myself, I seek out contracts with organisations like **NHS Digital** and startups like **[Freyda](https://freyda.io)** to build software with awesome teams.
 
-And if you manage an awesome team, my CV is available [on request](mailto:cariad@cariad.earth)!&nbsp;🚀
+If you manage an awesome team, my CV is available [on request](mailto:cariad@cariad.earth)!&nbsp;🚀
+
+And on socials, you can find me as [@cariad on LinkedIn](https://linkedin.com/in/cariad), [@cariad on GitHub](https://github.com/cariad), [@printeronfire@mastodon.gamedev.place on Mastodon](https://mastodon.gamedev.place/web/@printeronfire) and [@CariadEccleston on Twitter](https://twitter.com/cariadeccleston).
