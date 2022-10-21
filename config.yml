@@ -4,13 +4,32 @@ author:
     creator: "@CariadEccleston"
 baseURL: https://cariad.earth/
 languageCode: en-gb
+
 params:
+  # These parameters are read by the Earth theme:
+  # https://github.com/cariad/earth
+  #
+  # Name of the image in the images page bundle (which defaults to "/images") to
+  # show in the sidebar:
   avatar: cariad
+
+  # Fathom Analytics ($ https://usefathom.com/ref/TVWIFS) site ID:
   fathom: XQFCCTSZ  # cspell:disable-line
+
+  # Emoji to use as the site's favicon:
   favicon: 🚀
-  greeting: Hello! I'm **Cariad Eccleston**! I'm a DevOps contractor and open source developer. [Read more...](/about/)
+
+  # Greeting to show in the sidebar and on the front page:
+  greeting:
+    Hello! I'm **Cariad Eccleston**! I'm a DevOps contractor and open source
+    developer. [Read more...](/about/)
+
+  # OpenGraph configuration:
   opengraph:  # cspell:disable-line
+    # Name of the image in the images page bundle (which defaults to "/images")
+    # to use as the OpenGraph image for pages without featured images:
     image: opengraph  # cspell:disable-line
+
 theme: earth
 title: cariad.earth
 markup:

@@ -11,5 +11,5 @@
     "Rolumns",
     "Wordle"
   ],
-  "editor.rulers": [60],
+  "editor.rulers": [60, 80],
 }
