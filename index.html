@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <link href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>" rel="icon" />
+
+    <meta charset="utf-8" />
+
+    <meta content="Cariad Eccleston's résumé."          name="description" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <style>
+      @font-face {
+        font-display: swap;
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 600;
+        src: url('/fonts/nunito-v25-latin-600.woff2') format('woff2');
+      }
+
+      @font-face {
+        font-display: swap;
+        font-family: 'Nunito';
+        font-style: italic;
+        font-weight: 600;
+        src: url('/fonts/nunito-v25-latin-600italic.woff2') format('woff2');
+      }
+
+      @font-face {
+        font-display: swap;
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 800;
+        src: url('/fonts/nunito-v25-latin-800.woff2') format('woff2');
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --big-gap: 150px;
+        --medium-gap: 100px;
+        --paragraph-gap: 30px;
+      }
+
+      .date {
+        color: grey;
+        font-size: 1rem;
+        padding-left: 20px;
+      }
+
+      body {
+        font-family: 'Nunito', sans-serif;
+        font-size: 1.1rem;
+        font-weight: 600;
+
+        line-height: 1.6;
+
+        margin-inline: auto;
+        margin-top: var(--big-gap);
+
+        max-width: 90%;
+
+        width: 550px;
+      }
+
+      body > h1 {
+        font-size: 4rem;
+        margin-bottom: var(--big-gap);
+      }
+
+      h1 {
+        font-weight: 800;
+        line-height: 1;
+      }
+
+      h2 {
+        font-size: 1.2rem;
+        font-weight: 800;
+        margin-bottom: 20px;
+      }
+
+      h2:not(:first-child) {
+        margin-top: var(--medium-gap);
+      }
+
+      ul {
+        margin-left: 30px;
+      }
+
+      li {
+        margin-bottom: var(--paragraph-gap);
+        text-align: justify;
+      }
+
+      section {
+        display: grid;
+        grid-template-rows: [title] [content];
+        margin-bottom: var(--big-gap);
+      }
+
+      section h1 {
+        font-size: 2rem;
+        grid-area: 'title';
+        margin-bottom: 30px;
+      }
+
+      section div {
+        grid-area: 'content';
+      }
+
+      p {
+        margin-bottom: var(--paragraph-gap);
+        text-align: justify;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      strong {
+        font-weight: 800;
+      }
+
+      @media (min-width: 1200px) {
+        body {
+          width: 850px;
+        }
+
+        body > h1 {
+          font-size: 5rem;
+        }
+
+        section {
+          grid-template-columns: [title] 300px [content] 1fr;
+        }
+      }
+    </style>
+
+    <title>Cariad Eccleston</title>
+  </head>
+
+  <body>
+    <h1>Cariad Eccleston</h1>
+
+    <section>
+      <h1>Hello! 👋</h1>
+
+      <div>
+        <p>I'm Cariad (<em>carry-add</em>) and I'm a freelance Amazon Web Services architect, DevOps evangelist, and infrastructure and backend engineer by the beach in Exmouth, United Kingdom.</p>
+      </div>
+    </section>
+
+    <section>
+      <h1>Employment</h1>
+
+      <div>
+        <h2>Freyda <span class="date">2020 - present</span></h2>
+
+        <p>I'm currently a contract infrastructure and backend engineer at <a href="https://freyda.io/">Freyda</a>; a FinTech software-as-a-service startup that extracts information from documents through machine learning and natural language processing.</p>
+
+        <p>As well as contributing to the development of our public API backed by Lambda functions and Fargate services, I lead the:</p>
+
+        <ul>
+          <li>Design and deployment of Amazon Web Services architecture via Python, CloudFormation and Bash infrastructure-as-code.</li>
+
+          <li>Development of our <em>FreydOps</em> operations bot that notifies staff via Slack of problems and support alerts.</li>
+
+          <li>Management and maintenance of our GitLab CI/CD pipelines.</li>
+        </ul>
+
+        <p>I've also been responsible for the full-stack delivery of several tent pole features, including:</p>
+
+        <ul>
+          <li>Automated document imports via SFTP and third-party storage providers</li>
+
+          <li>OAuth 2.0 / Single Sign-On</li>
+        </ul>
+
+        <h2>NHS Digital <span class="date">2020</span></h2>
+
+        <p>I enjoyed a six-week contract at NHS Digital to migrate a .NET Framework SOAP service to .NET Core.</p>
+
+        <p>The service is a life-critical provider-facing application, so accuracy and reliability were paramount. I led the development of new unit tests to cover gaps in the original project's coverage, and created a new suite of integration tests using Postman.</p>
+
+        <h2>Thomson Reuters <span class="date">Software Team Lead, 2005 - 2019</span></h2>
+
+        <p>I started my career at Thomson Reuters as a software engineer contributing to the development of several Visual Basic and C# Windows desktop applications.</p>
+
+        <p>As our technologies evolved, I was promoted to Software Team Lead with responsibilities to:</p>
+
+        <ul>
+          <li>Lead and collaborate with development teams across the United States of America, the United Kingdom and India.</li>
+
+          <li>Build and deploy global infrastructure-as-code with TypeScript, JavaScript, PowerShell and Python.</li>
+
+          <li>Take ownership of production issues, perform and document investigations, and see solutions through to completion.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h1>Projects</h1>
+
+      <div>
+        <p>I maintain a number of Python open-source projects on <a href="https://github.com/cariad">GitHub</a>. Some of my favourites include:</p>
+
+        <ul>
+          <li><a href="https://github.com/cariad/cline">Cline</a> builds highly-testable command line applications.</li>
+
+          <li><a href="https://github.com/cariad/greas3">Greas3</a> uploads files to Amazon Web Services S3, using checksums to determine if a file is already up-to-date to prevent unnecessary work.</li>
+
+          <li><a href="https://github.com/cariad/lackadaisical">Lackadaisical</a> identifies slow code during unit testing.</li>
+
+          <li><a href="https://github.com/cariad/rolumns">Rolumns</a> manipulates data into rows and columns.</li>
+
+          <li><a href="https://github.com/cariad/slash3">Slash3</a> builds and navigates Amazon Web Services S3 URIs.</li>
+
+          <li><a href="https://github.com/cariad/wev">Wev</a> run commands with environment variables determined at runtime. I use Wev on an almost-daily basis to inject AWS CodeArtifact authentication tokens into Pipenv.</li>
+        </ul>
+
+        <p>In 2021, I earned a <a href="https://github.com/readme/featured/nasa-ingenuity-helicopter">Mars 2020 Contributor</a> badge for my contributions to Boto3, which was using during NASA's <em>Ingenuity</em> helicopter mission on Mars.</p>
+      </div>
+    </section>
+
+    <section>
+      <h1>Contact</h1>
+
+      <div>
+        <p>I'm <a href="https://github.com/cariad">@cariad</a> on GitHub and <a href="https://linkedin.com/in/cariad">in/cariad</a> on LinkedIn. You can mail me at <a href="mail:cariad@cariad.earth">cariad@cariad.earth</a>.</p>
+      </div>
+    </section>
+  </body>
+</html>
