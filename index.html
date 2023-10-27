@@ -1,37 +1,15 @@
 <!DOCTYPE html>
 <html lang="en-GB">
   <head>
-    <link href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>" rel="icon" />
+    <link href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👩🏻‍💻</text></svg>" rel="icon" />
 
     <meta charset="utf-8" />
 
-    <meta content="Cariad Eccleston's résumé."          name="description" />
+    <meta content="Cariad Eccleston's CV."              name="description" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
 
     <style>
-      @font-face {
-        font-display: swap;
-        font-family: 'Nunito';
-        font-style: normal;
-        font-weight: 600;
-        src: url('/fonts/nunito-v25-latin-600.woff2') format('woff2');
-      }
-
-      @font-face {
-        font-display: swap;
-        font-family: 'Nunito';
-        font-style: italic;
-        font-weight: 600;
-        src: url('/fonts/nunito-v25-latin-600italic.woff2') format('woff2');
-      }
-
-      @font-face {
-        font-display: swap;
-        font-family: 'Nunito';
-        font-style: normal;
-        font-weight: 800;
-        src: url('/fonts/nunito-v25-latin-800.woff2') format('woff2');
-      }
+      @import url('https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600;800&display=swap');
 
       * {
         margin: 0;
@@ -39,50 +17,38 @@
       }
 
       :root {
+        --accent: #E63462;
         --big-gap: 150px;
-        --medium-gap: 100px;
+        --small-gap: 50px;
         --paragraph-gap: 30px;
       }
 
-      .date {
-        color: grey;
-        font-size: 1rem;
-        padding-left: 20px;
-      }
-
       body {
-        font-family: 'Nunito', sans-serif;
+        font-family: 'Geologica', sans-serif;
         font-size: 1.1rem;
-        font-weight: 600;
 
         line-height: 1.6;
 
         margin-inline: auto;
         margin-top: var(--big-gap);
+        margin-bottom: var(--big-gap);
 
         max-width: 90%;
 
         width: 550px;
       }
 
-      body > h1 {
+      h1 {
         font-size: 4rem;
+        font-weight: 800;
+        line-height: 1;
         margin-bottom: var(--big-gap);
       }
 
-      h1 {
-        font-weight: 800;
-        line-height: 1;
-      }
-
       h2 {
-        font-size: 1.2rem;
+        font-size: 2rem;
         font-weight: 800;
-        margin-bottom: 20px;
-      }
-
-      h2:not(:first-child) {
-        margin-top: var(--medium-gap);
+        margin-bottom: var(--small-gap);
       }
 
       ul {
@@ -90,50 +56,77 @@
       }
 
       li {
-        margin-bottom: var(--paragraph-gap);
-        text-align: justify;
+        margin-bottom: calc(var(--paragraph-gap) / 2);
       }
 
       section {
-        display: grid;
-        grid-template-rows: [title] [content];
         margin-bottom: var(--big-gap);
       }
 
-      section h1 {
-        font-size: 2rem;
-        grid-area: 'title';
-        margin-bottom: 30px;
+      section.intro {
+        max-width: 800px;
+        font-size: 1.2rem;
+        font-weight: 500;
+        line-height: 1.7;
       }
 
-      section div {
-        grid-area: 'content';
+      section.columns li {
+        break-inside: avoid-column;
       }
 
-      p {
+      section.labelled-content {
+        display: grid;
+        grid-template-rows: [title] [content];
+      }
+
+      p,
+      ul:not(:last-child) {
         margin-bottom: var(--paragraph-gap);
-        text-align: justify;
       }
 
       a {
         text-decoration: none;
       }
 
-      strong {
-        font-weight: 800;
+      .label-title,
+      .label-subtitle {
+        font-weight: 600;
+      }
+
+      .label-title {
+        color: var(--accent);
+      }
+
+      .label-body {
+        color: grey;
+      }
+
+      .me {
+        color: var(--accent);
       }
 
       @media (min-width: 1200px) {
         body {
-          width: 850px;
+          width: 960px;
         }
 
-        body > h1 {
-          font-size: 5rem;
+        section.columns {
+          columns: 2;
+          column-gap: 40px;
         }
 
-        section {
+        section.labelled-content {
           grid-template-columns: [title] 300px [content] 1fr;
+          column-gap: 60px;
+        }
+
+        .label-subtitle,
+        .label-body {
+          font-size: 0.9rem;
+        }
+
+        section.labelled-content > :first-child {
+          line-height: 1.4;
         }
       }
     </style>
@@ -144,92 +137,286 @@
   <body>
     <h1>Cariad Eccleston</h1>
 
-    <section>
-      <h1>Hello! 👋</h1>
+    <section class="intro">
+      <p>Hello! 👋 I'm <span class="me">Cariad</span>!</p>
 
-      <div>
-        <p>I'm Cariad (<em>carry-add</em>) and I'm a freelance Amazon Web Services architect, DevOps evangelist, and infrastructure and backend engineer by the beach in Exmouth, United Kingdom.</p>
-      </div>
+      <p>I'm a contract Amazon Web Services architect, infrastructure deployer
+        and backend software engineer with commercial experience with
+        Python and C#.NET on Linux, Windows and macOS.</p>
+
+      <p>I'm on GitHub at <a href="https://github.com/cariad">/cariad</a>
+        and LinkedIn at <a href="https://www.linkedin.com/in/cariad/">/in/cariad</a>.</p>
+
+      <p>I have a BSc (Hons) Computer Science from The University of Salford,
+        my pronouns are she / her, and -- I hear ya -- it's pronounced
+        <span class="me">carry-add</span>.</p>
     </section>
 
-    <section>
-      <h1>Employment</h1>
+    <h2>Employment</h2>
 
+    <section class="labelled-content">
       <div>
-        <h2>Freyda <span class="date">2020 - present</span></h2>
+        <p class="label-title">Contract DevOps Engineer</p>
+        <p class="label-subtitle">
+          Freyda
+          &bullet;
+          <a href="https://freyda.io/" title="Freyda">freyda.io</a>
+        </p>
+        <p class="label-body">2020 - present</p>
+        <p class="label-body">
+          Freyda is a
+          <a href="https://freyda.io/freyda-receives-backing-from-google/">
+            Google-backed
+          </a>
+          FinTech startup implementing machine learning and artificial
+          intelligence to provide insight into unstructured financial data.
+        </p>
+      </div>
 
-        <p>I'm currently a contract infrastructure and backend engineer at <a href="https://freyda.io/">Freyda</a>; a FinTech software-as-a-service startup that extracts information from documents through machine learning and natural language processing.</p>
+      <div class="content">
+        <p>I joined Freyda during the platform's early development to lead the
+          design and deployment of architecture in Amazon Web Services.</p>
 
-        <p>As well as contributing to the development of our public API backed by Lambda functions and Fargate services, I lead the:</p>
+        <p>I take personal responsibility for:</p>
 
         <ul>
-          <li>Design and deployment of Amazon Web Services architecture via Python, CloudFormation and Bash infrastructure-as-code.</li>
-
-          <li>Development of our <em>FreydOps</em> operations bot that notifies staff via Slack of problems and support alerts.</li>
-
-          <li>Management and maintenance of our GitLab CI/CD pipelines.</li>
+          <li>Designing secure, resilient and cost-effective platform
+            architecture</li>
+          <li>Developing secure, resilient and highly-tested infrastructure-as-code via
+            CloudFormation, Python and
+            Bash</li>
+          <li>Developing secure, resilient and highly-tested Lambda functions and Fargate services
+            with Python and Docker</li>
+          <li>Deploying and managing the availability of GitLab CI/CD
+            pipelines</li>
+          <li>Performing security reviews, as well as making security-related
+            decisions and educating the team about threats and best-practices</li>
+          <li>Publishing technical documentation and hosting live
+            knowledge-sharing sessions in person and via online conferencing</li>
         </ul>
 
-        <p>I've also been responsible for the full-stack delivery of several tent pole features, including:</p>
+        <p>Beyond infrastructure, my most significant deliveries include:</p>
 
         <ul>
-          <li>Automated document imports via SFTP and third-party storage providers</li>
+          <li>The platform's internal SDK</li>
+
+          <li>A command-line interface to the platform's API</li>
+
+          <li>Automated document imports from third-party SFTP and other providers</li>
 
           <li>OAuth 2.0 / Single Sign-On</li>
-        </ul>
 
-        <h2>NHS Digital <span class="date">2020</span></h2>
+          <li>API user permission model</li>
 
-        <p>I enjoyed a six-week contract at NHS Digital to migrate a .NET Framework SOAP service to .NET Core.</p>
-
-        <p>The service is a life-critical provider-facing application, so accuracy and reliability were paramount. I led the development of new unit tests to cover gaps in the original project's coverage, and created a new suite of integration tests using Postman.</p>
-
-        <h2>Thomson Reuters <span class="date">Software Team Lead, 2005 - 2019</span></h2>
-
-        <p>I started my career at Thomson Reuters as a software engineer contributing to the development of several Visual Basic and C# Windows desktop applications.</p>
-
-        <p>As our technologies evolved, I was promoted to Software Team Lead with responsibilities to:</p>
-
-        <ul>
-          <li>Lead and collaborate with development teams across the United States of America, the United Kingdom and India.</li>
-
-          <li>Build and deploy global infrastructure-as-code with TypeScript, JavaScript, PowerShell and Python.</li>
-
-          <li>Take ownership of production issues, perform and document investigations, and see solutions through to completion.</li>
+          <li>Development of our "FreydOps" bot that keeps the internal team and
+            external data annotators apprised of relevant alerts</li>
         </ul>
       </div>
     </section>
 
-    <section>
-      <h1>Projects</h1>
+    <section class="labelled-content">
+      <div>
+        <p class="label-title">Contract Software Engineer</p>
+        <p class="label-subtitle">
+          NHS Digital
+          &bullet;
+          <a href="https://digital.nhs.uk/" title="NHS Digital">digital.nhs.uk</a>
+        </p>
+        <p class="label-body">2020</p>
+        <p class="label-body">
+          NHS Digital designs, develops and operate national IT and data
+          services that support clinicians at work.
+        </p>
+      </div>
 
       <div>
-        <p>I maintain a number of Python open-source projects on <a href="https://github.com/cariad">GitHub</a>. Some of my favourites include:</p>
-
-        <ul>
-          <li><a href="https://github.com/cariad/cline">Cline</a> builds highly-testable command line applications.</li>
-
-          <li><a href="https://github.com/cariad/greas3">Greas3</a> uploads files to Amazon Web Services S3, using checksums to determine if a file is already up-to-date to prevent unnecessary work.</li>
-
-          <li><a href="https://github.com/cariad/lackadaisical">Lackadaisical</a> identifies slow code during unit testing.</li>
-
-          <li><a href="https://github.com/cariad/rolumns">Rolumns</a> manipulates data into rows and columns.</li>
-
-          <li><a href="https://github.com/cariad/slash3">Slash3</a> builds and navigates Amazon Web Services S3 URIs.</li>
-
-          <li><a href="https://github.com/cariad/wev">Wev</a> run commands with environment variables determined at runtime. I use Wev on an almost-daily basis to inject AWS CodeArtifact authentication tokens into Pipenv.</li>
-        </ul>
-
-        <p>In 2021, I earned a <a href="https://github.com/readme/featured/nasa-ingenuity-helicopter">Mars 2020 Contributor</a> badge for my contributions to Boto3, which was using during NASA's <em>Ingenuity</em> helicopter mission on Mars.</p>
+        <p>Successfully migrated a life-critical C# .NET SOAP
+          service to C# .NET Core.</p>
+        <p>Delivered on-time with regularly communicated updates to
+          leadership.</p>
+        <p>Took personal responsibility for building a new end-to-end test suite
+          to add confidence to the delivery.</p>
       </div>
     </section>
 
-    <section>
-      <h1>Contact</h1>
+    <section class="labelled-content">
+      <div>
+        <p class="label-title">Software Team Lead</p>
+        <p class="label-subtitle">
+          Thomson Reuters Tax & Accounting
+          &bullet;
+          <a href="https://tax.thomsonreuters.co.uk/" title="Thomson Reuters Tax & Accounting">tax.thomsonreuters.co.uk</a>
+        </p>
+        <p class="label-body">2005 - 2019</p>
+        <p class="label-body">
+          Thomson Reuters Tax & Accounting develops integrated software products
+          for tax and accounting professionals.
+        </p>
+      </div>
 
       <div>
-        <p>I'm <a href="https://github.com/cariad">@cariad</a> on GitHub and <a href="https://linkedin.com/in/cariad">in/cariad</a> on LinkedIn. You can mail me at <a href="mailto:cariad@cariad.earth">cariad@cariad.earth</a>.</p>
+        <p>Contributed to the design, development, test and support of a SaaS platform made up of C#, JavaScript and Golang microservices on Windows and Linux.</p>
+        <p>Led the DevOps team that successfully migrated the platform from on-premises hardware into Amazon Web Services on-time.</p>
+        <p>Led a global DevOps team to develop disaster recovery strategies, security practices and Python tooling for business-wide teams.</p>
       </div>
+    </section>
+
+    <h2>Projects</h2>
+
+    <section class="columns">
+
+      <p>I maintain a number of Python packages on GitHub at
+        <a href="https://github.com/cariad" title="Cariad's GitHub projects">github.com/cariad</a>.
+      </p>
+
+      <p>Some of my favourites include:</p>
+
+      <ul>
+        <li>
+          <a href="https://github.com/cariad/cline">cline</a>
+          is a framework for building highly-testable command line
+          applications and <a href="https://github.com/cariad/asking">asking</a>
+          allows scripts to interactively prompt users for input. I've used
+          both of these packages to build command-line applications for
+          Freyda.
+        </li>
+
+        <li>
+          <a href="https://github.com/cariad/greas3">greas3</a>
+          uploads files to Amazon Web Services S3, using checksums to
+          determine if a file is already up-to-date to prevent unnecessary
+          work.
+        </li>
+
+        <li>
+          <a href="https://github.com/cariad/lackadaisical">lackadaisical</a>
+          identifies slow code during unit testing. I use this for performance
+          testing at Freyda.
+        </li>
+
+        <li>
+          <a href="https://github.com/cariad/rolumns">rolumns</a>
+          manipulates data into rows and columns and <a href="https://github.com/cariad/recompose">recompose</a>
+          transforms lists and dictionaries according to schemas. Both of
+          these packages are used for data manipulation and export at Freyda.
+        </li>
+
+        <li>
+          <a href="https://github.com/cariad/slash3">slash3</a>
+            builds and navigates Amazon Web Services S3 URIs, much like the
+            Path class does for building and navigating file system paths.
+          </li>
+
+        <li>
+          <a href="https://github.com/cariad/wev">wev</a> runs
+            shell commands with environment variables determined at runtime.
+            I use this tool on an almost-daily basis at Freyda to inject
+            Amazon Web Services CodeArtifact authentication tokens into Pipenv
+            and to perform multi-factor authentication for the AWS command
+            line.
+          </li>
+      </ul>
+
+      <p>In 2021, I earned a <a href="https://github.com/readme/featured/nasa-ingenuity-helicopter">Mars 2020 Contributor</a> badge for my contributions to Boto3, which was using during NASA's Ingenuity helicopter mission on Mars.</p>
+
+      <p>In 2022, I released <a href="https://wa11y.co/">wa11y.co</a> to help
+        Wordle players share screen reader-friendly results on social media.
+        The app was used 31.1k times per month at its peak and earned mentions
+        on <a href="https://www.theverge.com/22892044/wordle-free-game-online-how-to-puzzle">The Verge</a>
+        and <a href="https://slate.com/culture/2022/02/wordle-word-game-results-accessibility-twitter.html">Slate.</a></p>
+    </section>
+
+    <h2>Talks</h2>
+
+    <section class="labelled-content">
+      <div>
+        <p class="label-title">
+          PRISM Exeter
+        </p>
+        <p class="label-subtitle">
+          <a href="https://prismexeter.com/" title="PRISM Exeter">prismexeter.com</a>
+        </p>
+        <p class="label-body">
+          PRISM (Pride and Representation in STEMM Matters) Exeter provides a
+          network for professionals and students working and studying within the
+          local STEMM sector.
+        </p>
+      </div>
+
+      <p>I was invited to pitch a talk about Internet security for LGBTQ+
+        journalists and communities online, and it was a privilege to discuss
+        how Tor's encryption and onion routing can help to protect Internet
+        users on unsafe networks.</p>
+    </section>
+
+    <section class="labelled-content">
+      <div>
+        <p class="label-title">
+          TechExeter
+        </p>
+        <p class="label-subtitle">
+          <a href="https://techexeter.uk/" title="TechExeter">techexeter.uk</a>
+        </p>
+        <p class="label-body">
+          TechExeter is a community group for technologists in and around
+          Exeter.
+        </p>
+        <p class="label-body">
+          I do not consider TechExeter or any other group run by this staff to
+          be a safe space for transgender people, and their inclusion in my CV
+          is not an endorsement of them.
+        </p>
+      </div>
+
+      <p>
+        I hosted a talk about managing KMS customer keys in Amazon Web Services,
+        some best practices for their IAM policies, and how to use those keys
+        with Secrets Manager to manage credentials for RDS databases.
+      </p>
+    </section>
+
+    <section class="labelled-content">
+      <div>
+        <p class="label-title">London Docklands AWS User Group</p>
+        <p class="label-title">Nottingham AWS User Group</p>
+      </div>
+
+      <p>I was invited by colleagues at Thomson Reuters to talk at their local
+        Amazon Web Services user groups about the challenges and our
+        strategies for migrating our SaaS platform from on-premises hardware
+        into Amazon Web Services.</p>
+    </section>
+
+    <section class="labelled-content">
+      <div>
+        <p class="label-title">
+          Out & Equal Workplace Summit
+        </p>
+        <p class="label-subtitle">
+          <a href="https://outandequal.org/" title="Out & Equal">outandequal.org</a>
+        </p>
+        <p class="label-body">
+          Out & Equal is a non-profit working exclusively on LGBTQ+ workplace
+          equity, inclusion and belonging.
+        </p>
+      </div>
+
+      <p>I was invited to join Thomson Reuters' LGBTQ+ leadership at the Out &
+        Equal Workplace Summit to share our story about running our global
+        LGBTQ+ employee group as an online community.</p>
+    </section>
+
+    <h2>Contact</h2>
+
+    <section class="content-only">
+      <p>Got an interesting project to talk about?</p>
+      <p>You can mail me at
+        <a href="mailto:cariad@cariad.earth">cariad@cariad.earth</a>, or we can
+        connect on LinkedIn at
+        <a href="https://linkedin.com/in/cariad">in/cariad</a> and the
+        Fediverse at
+        <a href="https://hachyderm.io/@cariad" rel="me">@cariad@hachyderm.io</a>.
+      </p>
     </section>
   </body>
 </html>
