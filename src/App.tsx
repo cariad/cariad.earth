@@ -1,12 +1,20 @@
 import PageTitle from "./PageTitle";
 import SocialLinks from "./SocialLinks";
-import { Container } from "@radix-ui/themes";
+import { Container, Flex } from "@radix-ui/themes";
 
 function App() {
   return (
-    <Container size="2">
-      <PageTitle>Cariad Eccleston</PageTitle>
-      <SocialLinks />
+    <Container
+      mt={{
+        initial: "5",
+        sm: "9",
+      }}
+      size="2"
+    >
+      <Flex direction="column" gap="3">
+        <PageTitle>Cariad Eccleston</PageTitle>
+        <SocialLinks />
+      </Flex>
     </Container>
   );
 }
