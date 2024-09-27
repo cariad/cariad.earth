@@ -2,11 +2,11 @@ import DevOpsBadge from "../badges/DevOpsBadge";
 import EventBlock from "../EventBlock";
 import EventHeader from "../EventHeader";
 import FullStackBadge from "../badges/FullStackBadge";
-import { Link, Section } from "@radix-ui/themes";
+import { Box, Link } from "@radix-ui/themes";
 
 function Freyda() {
   return (
-    <Section>
+    <Box>
       <EventHeader
         date="2020 - 2024"
         name="Freyda"
@@ -229,7 +229,7 @@ function Freyda() {
           interactively gather the user's configuration.
         </p>
       </EventBlock>
-    </Section>
+    </Box>
   );
 }
 

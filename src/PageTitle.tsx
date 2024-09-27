@@ -1,20 +1,37 @@
-import { Heading } from "@radix-ui/themes";
+import { Avatar, Flex, Heading } from "@radix-ui/themes";
 
-interface Props {
-  children: string;
-}
-
-function PageTitle({ children }: Props) {
+function PageTitle() {
   return (
-    <Heading
-      // Font size (9 is largest): https://www.radix-ui.com/themes/docs/components/heading
-      size={{
-        initial: "8",
-        sm: "9",
+    <Flex
+      align="center"
+      gap={{
+        initial: "2",
+        sm: "4",
+      }}
+      justify={{
+        initial: "center",
+        sm: "start",
       }}
     >
-      {children}
-    </Heading>
+      <Avatar
+        size={{
+          initial: "2",
+          sm: "5",
+        }}
+        src="/cariad-eccleston.jpg"
+        radius="full"
+        fallback="CE"
+      />
+
+      <Heading
+        size={{
+          initial: "8",
+          sm: "9",
+        }}
+      >
+        Cariad Eccleston
+      </Heading>
+    </Flex>
   );
 }
 

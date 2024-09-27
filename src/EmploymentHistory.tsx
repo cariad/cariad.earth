@@ -1,9 +1,9 @@
 import Freyda from "./employments/Freyda";
-import { Heading, Section } from "@radix-ui/themes";
+import { Flex, Heading } from "@radix-ui/themes";
 
 function EmploymentHistory() {
   return (
-    <Section size="1">
+    <Flex direction="column" gap="6">
       <Heading
         as="h2"
         size={{
@@ -14,7 +14,7 @@ function EmploymentHistory() {
         Employment
       </Heading>
       <Freyda />
-    </Section>
+    </Flex>
   );
 }
 
