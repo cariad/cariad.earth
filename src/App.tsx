@@ -1,3 +1,4 @@
+import EducationHistory from "./EducationHistory";
 import EmploymentHistory from "./EmploymentHistory";
 import Introduction from "./Introduction";
 import PageTitle from "./PageTitle";
@@ -21,6 +22,7 @@ function App() {
         <SocialLinks />
         <Introduction />
         <EmploymentHistory />
+        <EducationHistory />
       </Flex>
     </Container>
   );

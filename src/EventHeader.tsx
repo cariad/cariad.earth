@@ -1,17 +1,18 @@
 import { Box, Flex, Heading, Text } from "@radix-ui/themes";
+import { ReactElement } from "react";
 
 interface Props {
-  id: string;
   date: string;
-  location?: string;
+  id?: string;
+  location?: ReactElement | string;
   name: string;
-  position: string;
+  position: ReactElement | string;
 }
 
 function EventHeader({ date, id, location, name, position }: Props) {
   return (
     <>
-      <a id={id} />
+      {id ? <a id={id} /> : null}
       <Heading as="h3">{name}</Heading>
 
       <Flex justify="between">
