@@ -11,7 +11,7 @@ interface Props {
 function EventBlock({ badge, children, heading, introduction }: Props) {
   return (
     <Box
-      mt="6"
+      mt={introduction ? "4" : "6"}
       pt={introduction ? "1" : undefined}
       pb={introduction ? "1" : undefined}
       pl={introduction ? "4" : undefined}

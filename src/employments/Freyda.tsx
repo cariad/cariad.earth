@@ -6,9 +6,11 @@ import { Box, Link } from "@radix-ui/themes";
 
 function Freyda() {
   return (
-    <Box>
+    <Box mt="6">
       <EventHeader
-        date="2020 - 2024"
+        date="March 2020 - May 2024"
+        id="freyda"
+        location="Remote &bull; Exeter Science Park &bull; London co-working spaces"
         name="Freyda"
         position="Contract DevOps Engineer"
       />
