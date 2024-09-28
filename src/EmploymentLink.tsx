@@ -8,7 +8,7 @@ interface Props {
 
 function EmploymentLink({ date, id, name }: Props) {
   return (
-    <Box width="140px">
+    <Box width="160px">
       <Link href={"#" + id}>
         <Card>
           <Text as="div" size="2" weight="bold">
