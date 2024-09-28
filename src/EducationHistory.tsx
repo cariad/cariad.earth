@@ -5,7 +5,7 @@ import { Flex } from "@radix-ui/themes";
 function EducationHistory() {
   return (
     <Flex direction="column" gap="4">
-      <SectionHeading>Education</SectionHeading>
+      <SectionHeading id="education">Education</SectionHeading>
       <IbmAiSpecialisation />
     </Flex>
   );

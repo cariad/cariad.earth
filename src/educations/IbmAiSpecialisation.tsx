@@ -22,10 +22,8 @@ function IbmAiSpecialisation() {
       </p>
 
       <ul>
-        <li>
-          Was introduced to Hugging Face and touched on a range of models.
-        </li>
-        <li>Learned how to use Python for data science.</li>
+        <li>Explored Hugging Face and a range of models.</li>
+        <li>Gained experience using Python for data science.</li>
         <li>
           Developed conversational and generative AI APIs with Python and Flask.
         </li>

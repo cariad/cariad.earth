@@ -7,11 +7,11 @@ function Introduction() {
       <p>I'm a full stack engineer looking for contract / permanent roles.</p>
       <p>
         I have commercial experience in startups and global multinationals, in
-        financial and medical technology, with Python and C#. I'm passionate
+        financial and medical technologies, with Python and C#. I'm passionate
         about test-driven development, DevOps cultures and security.
       </p>
       <p>
-        I'm a Meta-certified frontend developer, and an IBM-certified AI
+        I'm a Meta-certified frontend developer and an IBM-certified AI
         developer.
       </p>
       <p>

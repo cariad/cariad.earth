@@ -15,7 +15,13 @@ function EventHeader({ date, id, location, name, position }: Props) {
       {id ? <a id={id} /> : null}
       <Heading as="h3">{name}</Heading>
 
-      <Flex justify="between">
+      <Flex
+        direction={{
+          initial: "column-reverse",
+          sm: "row",
+        }}
+        justify="between"
+      >
         <Box>
           <Text color="gray">{position}</Text>
           {location ? (

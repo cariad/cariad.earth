@@ -3,19 +3,23 @@ import { ReactNode } from "react";
 
 interface Props {
   children: ReactNode;
+  id: string;
 }
 
-function SectionHeading({ children }: Props) {
+function SectionHeading({ children, id }: Props) {
   return (
-    <Heading
-      as="h2"
-      size={{
-        initial: "7",
-        sm: "8",
-      }}
-    >
-      {children}
-    </Heading>
+    <>
+      <a id={id} />
+      <Heading
+        as="h2"
+        size={{
+          initial: "7",
+          sm: "8",
+        }}
+      >
+        {children}
+      </Heading>
+    </>
   );
 }
 
