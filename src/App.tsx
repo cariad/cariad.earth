@@ -3,10 +3,33 @@ import EmploymentHistory from "./EmploymentHistory";
 import Introduction from "./Introduction";
 import Links from "./Links";
 import PageTitle from "./PageTitle";
+import { useEffect } from "react";
 import { DoubleArrowDownIcon, ExternalLinkIcon } from "@radix-ui/react-icons";
 import { Container, Flex } from "@radix-ui/themes";
 
+const STORAGE_KEY_SCROLL: string = "scrollPosition";
+
 function App() {
+  useEffect(() => {
+    const scrollPosition = sessionStorage.getItem(STORAGE_KEY_SCROLL);
+
+    if (scrollPosition)
+      window.scrollTo({
+        behavior: "instant",
+        top: parseInt(scrollPosition),
+      });
+
+    const saveScrollPosition = () =>
+      sessionStorage.setItem(STORAGE_KEY_SCROLL, window.scrollY.toString());
+
+    window.addEventListener("scroll", saveScrollPosition);
+
+    return () => {
+      saveScrollPosition();
+      window.removeEventListener("scroll", saveScrollPosition);
+    };
+  });
+
   return (
     <Container
       mb="9"

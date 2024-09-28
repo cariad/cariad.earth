@@ -12,6 +12,33 @@ interface Props {
 }
 
 function Links({ icon, links }: Props) {
+  const elements: ReactElement[] = [];
+
+  for (let i = 0; i < links.length; i++) {
+    const link: LinkItem = links[i];
+
+    if (i > 0)
+      elements.push(
+        <Separator
+          key={link.url + "separator"}
+          orientation={{
+            initial: "horizontal",
+            sm: "vertical",
+          }}
+          size={{
+            initial: "3",
+            sm: "1",
+          }}
+        />
+      );
+
+    elements.push(
+      <Link href={link.url} key={link.url} weight="medium">
+        {link.text}
+      </Link>
+    );
+  }
+
   return (
     <Flex
       align={{
@@ -26,29 +53,7 @@ function Links({ icon, links }: Props) {
       wrap="wrap"
     >
       {icon}
-
-      {links.map((value: LinkItem, index: number) => {
-        return (
-          <>
-            {index > 0 ? (
-              <Separator
-                orientation={{
-                  initial: "horizontal",
-                  sm: "vertical",
-                }}
-                size={{
-                  initial: "3",
-                  sm: "1",
-                }}
-              />
-            ) : null}
-
-            <Link href={value.url} weight="medium">
-              {value.text}
-            </Link>
-          </>
-        );
-      })}
+      {elements}
     </Flex>
   );
 }
