@@ -2,7 +2,7 @@ import EventHeader from "../EventHeader";
 import ExternalLink from "../ExternalLink";
 import { Box } from "@radix-ui/themes";
 
-function IbmAiSpecialisation() {
+function IbmAiDeveloperProfessionalCertificate() {
   return (
     <Box mt="6">
       <EventHeader
@@ -10,7 +10,7 @@ function IbmAiSpecialisation() {
         location={
           <ExternalLink
             text="Verify on coursera.org"
-            url="https://www.coursera.org/account/accomplishments/specialization/certificate/5KIVIZMH3B4K"
+            url="https://coursera.org/verify/professional-cert/5KIVIZMH3B4K"
           />
         }
         name="IBM AI Developer Professional Certificate"
@@ -23,7 +23,7 @@ function IbmAiSpecialisation() {
 
       <ul>
         <li>Explored Hugging Face and a range of models.</li>
-        <li>Gained experience using Python for data science.</li>
+        <li>Gained experience using Pandas and NumPy for data science.</li>
         <li>
           Developed conversational and generative AI APIs with Python and Flask.
         </li>
@@ -35,4 +35,4 @@ function IbmAiSpecialisation() {
   );
 }
 
-export default IbmAiSpecialisation;
+export default IbmAiDeveloperProfessionalCertificate;
