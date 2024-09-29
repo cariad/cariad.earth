@@ -1,5 +1,6 @@
 import PrismExeter from "./conferences/PrismExeter";
 import SectionHeading from "./SectionHeading";
+import TechExeter from "./conferences/TechExeter";
 import { Flex } from "@radix-ui/themes";
 
 function ConferenceHistory() {
@@ -7,6 +8,7 @@ function ConferenceHistory() {
     <Flex direction="column" gap="4">
       <SectionHeading id="conferences">Conferences</SectionHeading>
       <PrismExeter />
+      <TechExeter />
     </Flex>
   );
 }
