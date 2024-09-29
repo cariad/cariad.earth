@@ -1,6 +1,6 @@
 import EventBlock from "./EventBlock";
 import SectionHeading from "./SectionHeading";
-import { Flex, Link } from "@radix-ui/themes";
+import { Code, Flex, Link } from "@radix-ui/themes";
 
 function OpenSourceHistory() {
   return (
@@ -12,6 +12,28 @@ function OpenSourceHistory() {
           I maintain a large number of open-source projects on GitHub at{" "}
           <Link href="https://github.com/cariad">github.com/cariad</Link>. The
           following are a selection of the most influential.
+        </p>
+      </EventBlock>
+
+      <EventBlock heading="slash3">
+        <p>
+          <Link href="https://github.com/cariad/slash3">slash3</Link> (
+          <Link href="https://cariad.github.io/slash3/">documentation</Link>) is
+          a Python package for building and navigating Amazon Web Services S3
+          paths, much like the built-in <Code>pathlib</Code> supports building
+          and navigating filesystem paths.
+        </p>
+
+        <p>
+          These strongly-typed S3 paths significantly reduce the risk of errors
+          when building or reading paths, allow new keys to be quickly built on
+          top of prefixes, and easily convert bucket / key strings to URIs and
+          vice-versa.
+        </p>
+
+        <p>
+          I used slash3 at Freyda to develop safe and highly-tested interactions
+          with S3.
         </p>
       </EventBlock>
 
