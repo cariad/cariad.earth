@@ -27,6 +27,34 @@ function OpenSourceHistory() {
 
         <p>I used cline to build command-line tools for Freyda.</p>
       </EventBlock>
+
+      <EventBlock heading="asking">
+        <p>
+          <Link href="https://github.com/cariad/asking">asking</Link> (
+          <Link href="https://cariad.github.io/asking/">documentation</Link>) is
+          a Python package and command line application for gathering user input
+          through question / answer sessions on the command line.
+        </p>
+
+        <p>
+          Sessions are defined by schemas, which include the options for
+          multiple choice or free text answers, regular expressions for
+          acceptable answers, and branching depending on answers.
+        </p>
+
+        <p>
+          In the end, the user's responses are returned as a dictionary when
+          used as a Python package, or as JSON when run as a command-line
+          application.
+        </p>
+
+        <p>
+          Sessions can also be run non-interactively and are fully
+          unit-testable.
+        </p>
+
+        <p>I used asking to build command-line tools for Freyda.</p>
+      </EventBlock>
     </Flex>
   );
 }
