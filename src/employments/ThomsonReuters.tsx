@@ -1,3 +1,4 @@
+import BackToEmploymentHistory from "../BackToEmploymentHistory";
 import DevOpsBadge from "../badges/DevOpsBadge";
 import EventBlock from "../EventBlock";
 import EventHeader from "../EventHeader";
@@ -105,6 +106,7 @@ function ThomsonReuters() {
           work was presented at re:Invent by corporate leadership.
         </p>
       </EventBlock>
+      <BackToEmploymentHistory />
     </Box>
   );
 }

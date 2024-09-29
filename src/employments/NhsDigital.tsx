@@ -1,3 +1,4 @@
+import BackToEmploymentHistory from "../BackToEmploymentHistory";
 import EventBlock from "../EventBlock";
 import EventHeader from "../EventHeader";
 import FullStackBadge from "../badges/FullStackBadge";
@@ -53,6 +54,7 @@ function NhsDigital() {
           during a leadership call, and I completed the migration on-time.
         </p>
       </EventBlock>
+      <BackToEmploymentHistory />
     </Box>
   );
 }

@@ -1,3 +1,4 @@
+import BackToEmploymentHistory from "../BackToEmploymentHistory";
 import DevOpsBadge from "../badges/DevOpsBadge";
 import EventBlock from "../EventBlock";
 import EventHeader from "../EventHeader";
@@ -231,6 +232,7 @@ function Freyda() {
           interactively gather the user's configuration.
         </p>
       </EventBlock>
+      <BackToEmploymentHistory />
     </Box>
   );
 }

@@ -11,8 +11,8 @@ function Introduction() {
         about test-driven development, DevOps cultures and security.
       </p>
       <p>
-        I'm a Meta-certified frontend developer and an IBM-certified AI
-        developer.
+        I'm an experienced AWS engineer, Meta-certified frontend developer and
+        IBM-certified AI developer.
       </p>
       <p>
         I live by the sea in Exmouth, UK, so I'm looking for in-office roles in

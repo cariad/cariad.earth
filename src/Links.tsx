@@ -40,21 +40,23 @@ function Links({ icon, links }: Props) {
   }
 
   return (
-    <Flex
-      align={{
-        initial: "start",
-        sm: "center",
-      }}
-      direction={{
-        initial: "column",
-        sm: "row",
-      }}
-      gap="3"
-      wrap="wrap"
-    >
-      {icon}
-      {elements}
-    </Flex>
+    <nav>
+      <Flex
+        align={{
+          initial: "start",
+          sm: "center",
+        }}
+        direction={{
+          initial: "column",
+          sm: "row",
+        }}
+        gap="3"
+        wrap="wrap"
+      >
+        {icon}
+        {elements}
+      </Flex>
+    </nav>
   );
 }
 
