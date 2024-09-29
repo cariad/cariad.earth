@@ -1,3 +1,4 @@
+import ConferenceHistory from "./ConferenceHistory";
 import EducationHistory from "./EducationHistory";
 import EmploymentHistory from "./EmploymentHistory";
 import Introduction from "./Introduction";
@@ -80,12 +81,17 @@ function App() {
               text: "Open Source",
               url: "#open-source",
             },
+            {
+              text: "Conferences",
+              url: "#conferences",
+            },
           ]}
         />
 
         <EmploymentHistory />
         <EducationHistory />
         <OpenSourceHistory />
+        <ConferenceHistory />
       </Flex>
     </Container>
   );
