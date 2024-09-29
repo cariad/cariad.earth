@@ -1,4 +1,5 @@
 import AwsUserGroups from "./conferences/AwsUserGroups";
+import OutAndEqual from "./conferences/OutAndEqual";
 import PrismExeter from "./conferences/PrismExeter";
 import SectionHeading from "./SectionHeading";
 import TechExeter from "./conferences/TechExeter";
@@ -11,6 +12,7 @@ function ConferenceHistory() {
       <PrismExeter />
       <TechExeter />
       <AwsUserGroups />
+      <OutAndEqual />
     </Flex>
   );
 }
