@@ -205,6 +205,33 @@ function OpenSourceHistory() {
           regression.
         </p>
       </EventBlock>
+
+      <EventBlock heading="s3headersetter">
+        <p>
+          <Link href="https://github.com/cariad/s3headersetter">
+            s3headersetter
+          </Link>{" "}
+          is a Golang command-line application for setting the{" "}
+          <Code>Cache-Control</Code> and <Code>Content-Type</Code> HTTP headers
+          on AWS S3 objects according to their file types.
+        </p>
+
+        <p>
+          I used s3headersetter at Freyda to set appropriate headers on deployed
+          frontend files.
+        </p>
+      </EventBlock>
+
+      <EventBlock heading="cariad.earth">
+        <p>
+          This website is a React.js application with Radix UI components, and
+          the source is available at{" "}
+          <Link href="https://github.com/cariad/cariad.earth">
+            github.com/cariad/cariad.earth
+          </Link>
+          .
+        </p>
+      </EventBlock>
     </Flex>
   );
 }
