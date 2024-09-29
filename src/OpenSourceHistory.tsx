@@ -6,7 +6,6 @@ function OpenSourceHistory() {
   return (
     <Flex direction="column">
       <SectionHeading id="open-source">Open Source</SectionHeading>
-
       <EventBlock>
         <p>
           I maintain, and have contributed to, many open-source projects on
@@ -15,7 +14,6 @@ function OpenSourceHistory() {
           influential.
         </p>
       </EventBlock>
-
       <EventBlock heading="boto/boto3">
         <p>
           In 2021, I earned a{" "}
@@ -34,7 +32,32 @@ function OpenSourceHistory() {
           .
         </p>
       </EventBlock>
+      <EventBlock heading="wa11y.co">
+        <p>
+          During the Wordle craze of 2021-22, I released{" "}
+          <Link href="https://wa11y.co">wa11y.co</Link> (
+          <Link href="https://github.com/cariad/wa11y.co">source</Link>), short
+          for "Wordle Accessibility", to translate the game's emoji patterns
+          into screen reader-friendly text to share on social media.
+        </p>
 
+        <p>
+          The app translated over 30k games per month during its peak, and
+          earned mentions on{" "}
+          <Link href="https://www.theverge.com/22892044/wordle-free-game-online-how-to-puzzle">
+            The Verge
+          </Link>
+          ,{" "}
+          <Link href="https://slate.com/culture/2022/02/wordle-word-game-results-accessibility-twitter.html">
+            Slate
+          </Link>{" "}
+          and{" "}
+          <Link href="https://gamerant.com/wordle-issues-accessibility-social-media-sight-impaired-emojis-readibility/">
+            GameRant
+          </Link>
+          .
+        </p>
+      </EventBlock>
       <EventBlock heading="wev">
         <p>
           <Link href="https://github.com/cariad/wev">wev</Link> (
