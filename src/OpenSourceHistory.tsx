@@ -33,6 +33,31 @@ function OpenSourceHistory() {
         </p>
       </EventBlock>
 
+      <EventBlock heading="rolumns">
+        <p>
+          <Link href="https://github.com/cariad/rolumns">rolumns</Link> (
+          <Link href="https://cariad.github.io/rolumns/">documentation</Link>)
+          is a Python package for manipulating data into tables.
+        </p>
+
+        <p>
+          For example, rolumns allows you to flatten hierarchical objects into
+          rows, perform grouping of lists of objects, define inline value
+          manipulations and add user-defined columns.
+        </p>
+
+        <p>
+          I used rolumns at Freyda to build a reporting framework that
+          transforms deeply-hierarchical financial information into Microsoft
+          Excel spreadsheets. I've also published some example usage with public
+          APIs at{" "}
+          <Link href="https://github.com/cariad/rolumns-examples">
+            cariad/rolumns-examples
+          </Link>
+          .
+        </p>
+      </EventBlock>
+
       <EventBlock heading="cline">
         <p>
           <Link href="https://github.com/cariad/cline">cline</Link> (
