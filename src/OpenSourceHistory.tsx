@@ -191,6 +191,23 @@ function OpenSourceHistory() {
 
         <p>I used asking to build command-line tools for Freyda.</p>
       </EventBlock>
+
+      <EventBlock heading="lambdaq">
+        <p>
+          <Link href="https://github.com/cariad/lambdaq">lambdaq</Link> ("lambda
+          queue") is a Python package that handles all the boilerplate for AWS
+          Lambda functions to receive events from Step Functions state machines,
+          either by SQS queues, by direct invocation, or to safely migrate from
+          one to another.
+        </p>
+
+        <p>
+          I used lambdaq at Freyda to significantly reduce the amount of time I
+          spent developing, and the amount of time my team spent reviewing, the
+          same code across dozens of projects.
+        </p>
+      </EventBlock>
+
       <EventBlock heading="lackadaisical">
         <p>
           <Link href="https://github.com/cariad/lackadaisical">
