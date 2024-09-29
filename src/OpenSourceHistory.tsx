@@ -73,6 +73,21 @@ function OpenSourceHistory() {
 
         <p>I used asking to build command-line tools for Freyda.</p>
       </EventBlock>
+
+      <EventBlock heading="lackadaisical">
+        <p>
+          <Link href="https://github.com/cariad/lackadaisical">
+            lackadaisical
+          </Link>{" "}
+          is a Python package for unit-testing performance; for example, to
+          assert that a function completes within a specified number of seconds.
+        </p>
+
+        <p>
+          I used lackadaisical at Freyda to test for database performance
+          regression.
+        </p>
+      </EventBlock>
     </Flex>
   );
 }
