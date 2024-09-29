@@ -1,3 +1,4 @@
+import AwsUserGroups from "./conferences/AwsUserGroups";
 import PrismExeter from "./conferences/PrismExeter";
 import SectionHeading from "./SectionHeading";
 import TechExeter from "./conferences/TechExeter";
@@ -9,6 +10,7 @@ function ConferenceHistory() {
       <SectionHeading id="conferences">Conferences</SectionHeading>
       <PrismExeter />
       <TechExeter />
+      <AwsUserGroups />
     </Flex>
   );
 }
