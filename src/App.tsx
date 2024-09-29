@@ -2,6 +2,7 @@ import EducationHistory from "./EducationHistory";
 import EmploymentHistory from "./EmploymentHistory";
 import Introduction from "./Introduction";
 import Links from "./Links";
+import OpenSourceHistory from "./OpenSourceHistory";
 import PageTitle from "./PageTitle";
 import { useEffect } from "react";
 import { DoubleArrowDownIcon, ExternalLinkIcon } from "@radix-ui/react-icons";
@@ -75,11 +76,16 @@ function App() {
               text: "Education",
               url: "#education",
             },
+            {
+              text: "Open Source",
+              url: "#open-source",
+            },
           ]}
         />
 
         <EmploymentHistory />
         <EducationHistory />
+        <OpenSourceHistory />
       </Flex>
     </Container>
   );
