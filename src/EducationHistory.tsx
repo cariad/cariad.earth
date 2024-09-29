@@ -1,3 +1,4 @@
+import BscHonoursComputerScience from "./educations/BscHonoursComputerScience";
 import IbmAiDeveloperProfessionalCertificate from "./educations/IbmAiDeveloperProfessionalCertificate";
 import MetaFrontendDeveloperProfessionalCertificate from "./educations/MetaFrontendDeveloperProfessionalCertificate";
 import SectionHeading from "./SectionHeading";
@@ -9,6 +10,7 @@ function EducationHistory() {
       <SectionHeading id="education">Education</SectionHeading>
       <IbmAiDeveloperProfessionalCertificate />
       <MetaFrontendDeveloperProfessionalCertificate />
+      <BscHonoursComputerScience />
     </Flex>
   );
 }
