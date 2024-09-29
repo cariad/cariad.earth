@@ -9,9 +9,29 @@ function OpenSourceHistory() {
 
       <EventBlock>
         <p>
-          I maintain a large number of open-source projects on GitHub at{" "}
-          <Link href="https://github.com/cariad">github.com/cariad</Link>. The
-          following are a selection of the most influential.
+          I maintain, and have contributed to, many open-source projects on
+          GitHub at <Link href="https://github.com/cariad">@cariad</Link>. The
+          following are a selection of my personal favourites and the most
+          influential.
+        </p>
+      </EventBlock>
+
+      <EventBlock heading="boto/boto3">
+        <p>
+          In 2021, I earned a{" "}
+          <Link href="https://github.com/cariad?achievement=mars-2020-contributor&tab=achievements">
+            Mars 2020 Contributor badge
+          </Link>{" "}
+          from GitHub and JPL for my contributions to{" "}
+          <Link href="https://github.com/boto/boto3">boto/boto3</Link>, which
+          was used during NASA's Ingenuity helicopter mission on Mars.
+        </p>
+        <p>
+          The badge was{" "}
+          <Link href="https://github.com/readme/featured/nasa-ingenuity-helicopter/">
+            spotlighted by the GitHub ReadME Project
+          </Link>
+          .
         </p>
       </EventBlock>
 
@@ -47,7 +67,6 @@ function OpenSourceHistory() {
           company's private repository as if using PyPI.
         </p>
       </EventBlock>
-
       <EventBlock heading="slash3">
         <p>
           <Link href="https://github.com/cariad/slash3">slash3</Link> (
@@ -69,7 +88,6 @@ function OpenSourceHistory() {
           with S3.
         </p>
       </EventBlock>
-
       <EventBlock heading="greas3">
         <p>
           <Link href="https://github.com/cariad/greas3">greas3</Link> (
@@ -87,7 +105,6 @@ function OpenSourceHistory() {
           significant wasted time and network traffic, which greas3 saves.
         </p>
       </EventBlock>
-
       <EventBlock heading="rolumns">
         <p>
           <Link href="https://github.com/cariad/rolumns">rolumns</Link> (
@@ -112,7 +129,6 @@ function OpenSourceHistory() {
           .
         </p>
       </EventBlock>
-
       <EventBlock heading="cline">
         <p>
           <Link href="https://github.com/cariad/cline">cline</Link> (
@@ -125,7 +141,6 @@ function OpenSourceHistory() {
 
         <p>I used cline to build command-line tools for Freyda.</p>
       </EventBlock>
-
       <EventBlock heading="asking">
         <p>
           <Link href="https://github.com/cariad/asking">asking</Link> (
@@ -153,7 +168,6 @@ function OpenSourceHistory() {
 
         <p>I used asking to build command-line tools for Freyda.</p>
       </EventBlock>
-
       <EventBlock heading="lackadaisical">
         <p>
           <Link href="https://github.com/cariad/lackadaisical">
