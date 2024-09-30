@@ -241,8 +241,8 @@ function OpenSourceHistory() {
 
       <EventBlock heading="cariad.earth">
         <p>
-          This website is a React.js application with Radix UI components, and
-          the source is available at{" "}
+          This website is a React.js application built with TypeScript and Radix
+          UI components, and the source is available at{" "}
           <Link href="https://github.com/cariad/cariad.earth">
             github.com/cariad/cariad.earth
           </Link>
