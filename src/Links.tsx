@@ -33,7 +33,7 @@ function Links({ icon, links }: Props) {
       );
 
     elements.push(
-      <Link href={link.url} key={link.url} weight="medium">
+      <Link href={link.url} key={link.url} rel="me" weight="medium">
         {link.text}
       </Link>
     );

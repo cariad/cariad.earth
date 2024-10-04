@@ -6,8 +6,9 @@ import Introduction from "./Introduction";
 import Links from "./Links";
 import OpenSourceHistory from "./OpenSourceHistory";
 import PageTitle from "./PageTitle";
+import SocialLinks from "./SocialLinks";
 import { useEffect } from "react";
-import { DoubleArrowDownIcon, ExternalLinkIcon } from "@radix-ui/react-icons";
+import { DoubleArrowDownIcon } from "@radix-ui/react-icons";
 import { Container, Flex } from "@radix-ui/themes";
 
 const STORAGE_KEY_SCROLL: string = "scrollPosition";
@@ -46,25 +47,7 @@ function App() {
     >
       <Flex direction="column" gap="9">
         <PageTitle />
-
-        <Links
-          icon={<ExternalLinkIcon />}
-          links={[
-            {
-              text: "github.com/cariad",
-              url: "https://github.com/cariad",
-            },
-            {
-              text: "linkedin.com/in/cariad",
-              url: "https://www.linkedin.com/in/cariad",
-            },
-            {
-              text: "cariad@cariad.earth",
-              url: "mailto:cariad@cariad.earth",
-            },
-          ]}
-        />
-
+        <SocialLinks />
         <Cv />
         <Introduction />
 
