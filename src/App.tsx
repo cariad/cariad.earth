@@ -1,4 +1,5 @@
 import ConferenceHistory from "./ConferenceHistory";
+import Cv from "./Cv";
 import EducationHistory from "./EducationHistory";
 import EmploymentHistory from "./EmploymentHistory";
 import Introduction from "./Introduction";
@@ -64,6 +65,7 @@ function App() {
           ]}
         />
 
+        <Cv />
         <Introduction />
 
         <Links
