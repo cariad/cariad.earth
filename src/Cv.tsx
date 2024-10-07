@@ -7,20 +7,12 @@ function Cv() {
       icon={<ActivityLogIcon />}
       links={[
         {
-          text: "Full Stack CV (.docx)",
-          url: "/cariad_eccleston_full_stack_cv.docx",
+          text: "Download CV (.docx)",
+          url: "/cariad-eccleston.docx",
         },
         {
-          text: "Full Stack CV (.pdf)",
-          url: "/cariad_eccleston_full_stack_cv.pdf",
-        },
-        {
-          text: "DevOps CV (.docx)",
-          url: "/cariad_eccleston_devops_cv.docx",
-        },
-        {
-          text: "DevOps CV (.pdf)",
-          url: "/cariad_eccleston_devops_cv.pdf",
+          text: "Download CV (.pdf)",
+          url: "/cariad-eccleston.pdf",
         },
       ]}
     />

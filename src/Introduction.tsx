@@ -12,12 +12,11 @@ function Introduction() {
       </p>
       <p>
         I'm an experienced AWS engineer, Meta-certified frontend developer and
-        IBM-certified AI developer.
+        IBM-certified full stack + AI developer.
       </p>
       <p>
         I live by the sea in Exmouth, UK, so I'm looking for in-office roles in
-        the Exeter area or remote roles from anywhere. I'm happy to negotiate
-        travel and longer commutes.
+        the Exeter area or remote roles from anywhere.
       </p>
     </Blockquote>
   );
