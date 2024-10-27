@@ -16,11 +16,6 @@ function IbmAiDeveloperProfessionalCertificate() {
         name="IBM AI Developer Professional Certificate"
         position="IBM"
       />
-      <p>
-        During this certification taught by members of the IBM Skills Network
-        Team, I:
-      </p>
-
       <ul>
         <li>Explored Hugging Face and a range of models.</li>
         <li>Gained experience using Pandas and NumPy for data science.</li>

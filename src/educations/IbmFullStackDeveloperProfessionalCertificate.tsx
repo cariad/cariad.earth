@@ -16,10 +16,6 @@ function IbmFullStackDeveloperProfessionalCertificate() {
         name="IBM Full Stack Developer Professional Certificate"
         position="IBM"
       />
-      <p>
-        During this certification taught by members of the IBM Skills Network
-        Team, I:
-      </p>
       <ul>
         <li>
           Reinforced my experience with Django, Node.js, Express.js and

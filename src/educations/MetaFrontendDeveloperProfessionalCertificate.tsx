@@ -16,8 +16,6 @@ function MetaFrontendDeveloperProfessionalCertificate() {
         name="Meta Frontend Developer Professional Certificate"
         position="Meta"
       />
-      <p>During this certification taught by Meta staff, I:</p>
-
       <ul>
         <li>
           Reinforced my experience with HTML, CSS, JavaScript and Node.js.
