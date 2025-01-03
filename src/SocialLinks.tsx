@@ -15,8 +15,8 @@ function SocialLinks() {
           url: "https://www.linkedin.com/in/cariad",
         },
         {
-          text: "hachyderm.io/@cariad",
-          url: "https://hachyderm.io/@cariad",
+          text: "queer.garden/@cariad",
+          url: "https://queer.garden/@cariad",
         },
         {
           text: "cariad@cariad.earth",
