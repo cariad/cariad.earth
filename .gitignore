@@ -1,1 +1,7 @@
 .rumdl_cache/
+.terraform/
+
+*.log
+*.tfplan
+*.tfstate
+*.tfstate.*

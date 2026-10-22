@@ -4,6 +4,10 @@ min_version = "2026.10.10"
 [settings]
 minimum_release_age = "7d"
 
+[tasks."infra:init"]
+description = "Initialise the OpenTofu module"
+run = "tofu -chdir=infra/bootstrap init -backend=false -lockfile=readonly"
+
 [tasks.lint]
 description = "Run the linters"
 depends = ["lint:*"]
@@ -15,6 +19,13 @@ run = "editorconfig-checker"
 [tasks."lint:markdown"]
 description = "Lint Markdown files"
 run = "rumdl check --deny-config-warnings"
+
+[tasks."lint:tofu"]
+description = "Lint OpenTofu files"
+run = [
+  "tofu fmt -check -diff -recursive infra",
+  "tofu -chdir=infra/bootstrap validate",
+]
 
 [tasks."lint:toml"]
 description = "Lint TOML files"
@@ -30,6 +41,7 @@ run = "zizmor --strict-collection ."
 # Run `mise outdated --bump` to check for updates.
 [tools]
 editorconfig-checker = "4.0.2"  # Lint files against .editorconfig
+opentofu = "1.13.1"             # Infrastructure as code
 rumdl = "0.2.79"                # Lint Markdown files
 tombi = "1.8.4"                 # Lint TOML files
 zizmor = "1.31.0"               # Audit GitHub Actions files

@@ -1,0 +1,47 @@
+name: infra
+
+on:
+  pull_request:
+    paths:
+      - .config/mise.lock
+      - .config/mise.toml
+      - .github/workflows/infra.yml
+      - infra/**
+  push:
+    branches:
+      - main
+    paths:
+      - .config/mise.lock
+      - .config/mise.toml
+      - .github/workflows/infra.yml
+      - infra/**
+
+permissions: {}
+
+jobs:
+  lint:
+    env:
+      MISE_LOCKED: 1                    # Fail if `.config/mise.lock` is out of date
+      MISE_LOCKED_VERIFY_PROVENANCE: 1  # Re-verify attestations even though `.config/mise.lock` records them
+      MISE_USE_VERSIONS_HOST: 0         # Ask GitHub, not mise's proxy, for attestations
+
+    runs-on: ubuntu-26.04
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install mise and the pinned tools
+        uses: jdx/mise-action@08ae2a091c038e1e05ec6f5115dc5c69d5a2a6b8 # v5.1.2
+        with:
+          cache: false         # Restored tools aren't verified, so don't cache them
+          version: 2026.10.10
+
+      - name: Initialise the OpenTofu module
+        run: mise run infra:init
+
+      - name: Lint OpenTofu files
+        run: mise run lint:tofu
