@@ -26,6 +26,12 @@ Hello! 👋 This repository *will* describe the infrastructure, website, and con
    mise install
    ```
 
+1. Initialise the OpenTofu module.
+
+   ```bash
+   mise run infra:init
+   ```
+
 ## Linting
 
 The `lint` task runs all the linters:
@@ -35,6 +41,8 @@ mise run lint
 ```
 
 The linters also run in CI when a pull request is opened.
+
+The OpenTofu linter runs only for pull requests that change infrastructure files or the Mise configuration.
 
 ## AI disclosure
 
