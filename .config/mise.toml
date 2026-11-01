@@ -4,6 +4,10 @@ min_version = "2026.10.10"
 [settings]
 minimum_release_age = "7d"
 
+[tasks.build]
+description = "Build the website"
+run = "platen site/templates site/values.yml site/public"
+
 [tasks."infra:init"]
 description = "Initialise the OpenTofu modules"
 run = [
@@ -46,6 +50,9 @@ run = "zizmor --strict-collection ."
 [tools]
 editorconfig-checker = "4.0.2"  # Lint files against .editorconfig
 opentofu = "1.13.1"             # Infrastructure as code
+"pypi:platen" = "0.4.0"         # Build the website
+python = "3.15.1"               # Run Platen
 rumdl = "0.2.79"                # Lint Markdown files
 tombi = "1.8.4"                 # Lint TOML files
+uv = "0.13.5"                   # Install and lock Platen
 zizmor = "1.31.0"               # Audit GitHub Actions files

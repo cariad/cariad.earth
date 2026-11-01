@@ -32,6 +32,14 @@ Hello! 👋 This repository *will* describe the infrastructure, website, and con
    mise run infra:init
    ```
 
+## Building the website
+
+The `build` task uses [Platen](https://github.com/cariad/platen) to press the values in `site/values.yml` into the templates in `site/templates`, and writes the website to `site/public`:
+
+```bash
+mise run build
+```
+
 ## Linting
 
 The `lint` task runs all the linters:
