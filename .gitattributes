@@ -1,6 +1,7 @@
 * text=auto eol=lf
 
 *.hcl          text
+*.html         text
 *.lock         text
 *.md           text diff=markdown
 *.tf           text
