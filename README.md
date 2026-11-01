@@ -26,7 +26,7 @@ Hello! 👋 This repository *will* describe the infrastructure, website, and con
    mise install
    ```
 
-1. Initialise the OpenTofu module.
+1. Initialise the OpenTofu modules.
 
    ```bash
    mise run infra:init

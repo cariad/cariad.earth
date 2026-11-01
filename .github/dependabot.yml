@@ -14,3 +14,10 @@ updates:
     package-ecosystem: opentofu
     schedule:
       interval: weekly
+
+  - cooldown:
+      default-days: 7
+    directory: /infra/site
+    package-ecosystem: opentofu
+    schedule:
+      interval: weekly

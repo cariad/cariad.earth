@@ -5,8 +5,11 @@ min_version = "2026.10.10"
 minimum_release_age = "7d"
 
 [tasks."infra:init"]
-description = "Initialise the OpenTofu module"
-run = "tofu -chdir=infra/bootstrap init -backend=false -lockfile=readonly"
+description = "Initialise the OpenTofu modules"
+run = [
+  "tofu -chdir=infra/bootstrap init -backend=false -lockfile=readonly",
+  "tofu -chdir=infra/site init -backend=false -lockfile=readonly",
+]
 
 [tasks.lint]
 description = "Run the linters"
@@ -25,6 +28,7 @@ description = "Lint OpenTofu files"
 run = [
   "tofu fmt -check -diff -recursive infra",
   "tofu -chdir=infra/bootstrap validate",
+  "tofu -chdir=infra/site validate",
 ]
 
 [tasks."lint:toml"]
