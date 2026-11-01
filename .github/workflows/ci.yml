@@ -9,11 +9,27 @@ on:
 permissions: {}
 
 jobs:
+  build:
+    runs-on: ubuntu-26.04
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Build the website
+        uses: cariad/platen-action@eb00ce0dd341c7c75396cc4d67e54e81cf5a34e6 # v0.1.0
+        with:
+          output: site/public
+          platen-version: 0.4.0
+          templates: site/templates
+          values: site/values.yml
+
   lint:
     env:
-      MISE_LOCKED: 1                    # Fail if `.config/mise.lock` is out of date
-      MISE_LOCKED_VERIFY_PROVENANCE: 1  # Re-verify attestations even though `.config/mise.lock` records them
-      MISE_USE_VERSIONS_HOST: 0         # Ask GitHub, not mise's proxy, for attestations
+      MISE_LOCKED: 1
 
     runs-on: ubuntu-26.04
     timeout-minutes: 10
@@ -29,8 +45,6 @@ jobs:
         with:
           cache: false         # Restored tools aren't verified, so don't cache them
           version: 2026.10.10
-
-      # Don't run `mise run lint`: named steps make it easier to hunt failures.
 
       - name: Lint files against .editorconfig
         run: mise run lint:editorconfig

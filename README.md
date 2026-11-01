@@ -40,6 +40,8 @@ The `build` task uses [Platen](https://github.com/cariad/platen) to press the va
 mise run build
 ```
 
+CI also builds the website with [platen-action](https://github.com/cariad/platen-action) when a pull request is opened.
+
 ## Linting
 
 The `lint` task runs all the linters:
