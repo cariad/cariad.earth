@@ -40,7 +40,7 @@ jobs:
           cache: false         # Restored tools aren't verified, so don't cache them
           version: 2026.10.10
 
-      - name: Initialise the OpenTofu module
+      - name: Initialise the OpenTofu modules
         run: mise run infra:init
 
       - name: Lint OpenTofu files
