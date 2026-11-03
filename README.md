@@ -44,7 +44,7 @@ CI also builds the website with [platen-action](https://github.com/cariad/platen
 
 ## Publishing the website
 
-When a pull request is merged, and the `ci` workflow's build and linters pass, CI publishes the website to the bunny.net storage zone with [watershipup-action](https://github.com/cariad/watershipup-action), and comments on the pull request with the files that it uploaded and deleted.
+CI publishes the website when a pull request is merged.
 
 The publish job runs in the `production` environment, which must hold the storage zone's read-write password in a secret named `STORAGE_ZONE_PASSWORD`.
 

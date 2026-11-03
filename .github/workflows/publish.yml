@@ -1,0 +1,45 @@
+name: publish
+
+on:
+  pull_request:
+    types:
+      - closed
+
+concurrency:
+  group: ${{ github.workflow }}
+
+permissions: {}
+
+jobs:
+  build:
+    if: github.event.pull_request.merged
+    uses: $/.github/workflows/build.yml
+
+  publish:
+    environment:
+      name: production
+      url: https://cariad.earth
+
+    needs:
+      - build
+
+    permissions:
+      pull-requests: write
+
+    runs-on: ubuntu-26.04
+    timeout-minutes: 10
+
+    steps:
+      - name: Download the artifact
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: site
+          path: site/public
+
+      - name: Publish the website
+        uses: cariad/watershipup-action@98ffc7ca5360e2b26db77f8cfde67e629aba48ef # v0.1.0
+        with:
+          directory: site/public
+          password: ${{ secrets.STORAGE_ZONE_PASSWORD }}
+          watershipup-version: 0.2.0
+          zone: cariad-earth-20261022 # Copy from `infra/site/main.tf`
