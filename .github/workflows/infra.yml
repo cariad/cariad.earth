@@ -7,14 +7,6 @@ on:
       - .config/mise.toml
       - .github/workflows/infra.yml
       - infra/**
-  push:
-    branches:
-      - main
-    paths:
-      - .config/mise.lock
-      - .config/mise.toml
-      - .github/workflows/infra.yml
-      - infra/**
 
 permissions: {}
 

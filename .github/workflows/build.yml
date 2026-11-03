@@ -1,0 +1,33 @@
+name: build
+
+on:
+  workflow_call: {}
+
+permissions: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-26.04
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Build the website
+        uses: cariad/platen-action@aae9a1e31c8f978bb57ef0478bba99c7887d2818 # v0.2.0
+        with:
+          output: site/public
+          platen-version: 0.4.0
+          templates: site/templates
+          values: site/values.yml
+
+      - name: Upload the artifact
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          if-no-files-found: error
+          include-hidden-files: true # Keep `.well-known`, and let WatershipUp refuse the rest
+          name: site
+          path: site/public

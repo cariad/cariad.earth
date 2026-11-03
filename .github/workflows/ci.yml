@@ -2,46 +2,18 @@ name: ci
 
 on:
   pull_request: {}
-  push:
-    branches:
-      - main
 
 concurrency:
-  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+  cancel-in-progress: true
   group: ${{ github.workflow }}-${{ github.ref }}
 
 permissions: {}
 
 jobs:
   build:
-    runs-on: ubuntu-26.04
-    timeout-minutes: 10
-
-    steps:
-      - name: Check out
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          persist-credentials: false
-
-      - name: Build the website
-        uses: cariad/platen-action@aae9a1e31c8f978bb57ef0478bba99c7887d2818 # v0.2.0
-        with:
-          output: site/public
-          platen-version: 0.4.0
-          templates: site/templates
-          values: site/values.yml
-
-      - name: Upload the artifact
-        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
-        with:
-          if-no-files-found: error
-          include-hidden-files: true # Keep `.well-known`, and let WatershipUp refuse the rest
-          name: site
-          path: site/public
+    uses: $/.github/workflows/build.yml
 
   dry-run:
-    if: github.event_name == 'pull_request'
-
     needs:
       - build
 
@@ -99,32 +71,3 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         name: Audit GitHub Actions files
         run: mise run lint:workflows
-
-  publish:
-    environment:
-      name: production
-      url: https://cariad.earth
-
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-
-    needs:
-      - build
-      - lint
-
-    runs-on: ubuntu-26.04
-    timeout-minutes: 10
-
-    steps:
-      - name: Download the artifact
-        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
-        with:
-          name: site
-          path: site/public
-
-      - name: Publish the website
-        uses: cariad/watershipup-action@98ffc7ca5360e2b26db77f8cfde67e629aba48ef # v0.1.0
-        with:
-          directory: site/public
-          password: ${{ secrets.STORAGE_ZONE_PASSWORD }}
-          watershipup-version: 0.2.0
-          zone: cariad-earth-20261022 # Copy from `infra/site/main.tf`
