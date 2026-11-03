@@ -1,13 +1,15 @@
 name: ci
 
 on:
-  pull_request: {}
-  push:
-    branches:
-      - main
+  pull_request:
+    types:
+      - closed
+      - opened
+      - reopened
+      - synchronize
 
 concurrency:
-  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+  cancel-in-progress: ${{ github.event.action != 'closed' }}
   group: ${{ github.workflow }}-${{ github.ref }}
 
 permissions: {}
@@ -40,7 +42,7 @@ jobs:
           path: site/public
 
   dry-run:
-    if: github.event_name == 'pull_request'
+    if: github.event.action != 'closed'
 
     needs:
       - build
@@ -105,11 +107,14 @@ jobs:
       name: production
       url: https://cariad.earth
 
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.event.pull_request.merged
 
     needs:
       - build
       - lint
+
+    permissions:
+      pull-requests: write
 
     runs-on: ubuntu-26.04
     timeout-minutes: 10

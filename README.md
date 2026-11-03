@@ -44,11 +44,11 @@ CI also builds the website with [platen-action](https://github.com/cariad/platen
 
 ## Publishing the website
 
-When a change lands in `main`, and the `ci` workflow's build and linters pass, CI publishes the website to the bunny.net storage zone with [watershipup-action](https://github.com/cariad/watershipup-action).
+When a pull request is merged, and the `ci` workflow's build and linters pass, CI publishes the website to the bunny.net storage zone with [watershipup-action](https://github.com/cariad/watershipup-action), and comments on the pull request with the files that it uploaded and deleted.
 
 The publish job runs in the `production` environment, which must hold the storage zone's read-write password in a secret named `STORAGE_ZONE_PASSWORD`.
 
-For pull requests, CI dry runs the publish instead, and comments on the pull request with the files that it would upload and delete. The dry run reads the storage zone's read-only password from a repository secret named `STORAGE_ZONE_READ_ONLY_PASSWORD`, and from a Dependabot secret of the same name for Dependabot's pull requests.
+Before a pull request is merged, CI dry runs the publish, and comments on the pull request with the files that it would upload and delete. The dry run reads the storage zone's read-only password from a repository secret named `STORAGE_ZONE_READ_ONLY_PASSWORD`, and from a Dependabot secret of the same name for Dependabot's pull requests.
 
 ## Linting
 
