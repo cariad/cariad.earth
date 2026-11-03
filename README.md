@@ -44,7 +44,7 @@ CI also builds the website with [platen-action](https://github.com/cariad/platen
 
 ## Publishing the website
 
-CI publishes the website when a pull request is merged.
+CI publishes the website when a pull request is merged into `main`.
 
 The publish job runs in the `production` environment, which must hold the storage zone's read-write password in a secret named `STORAGE_ZONE_PASSWORD`.
 
