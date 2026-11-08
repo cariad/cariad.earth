@@ -49,6 +49,54 @@ url = "https://github.com/editorconfig-checker/editorconfig-checker/releases/dow
 url_api = "https://api.github.com/repos/editorconfig-checker/editorconfig-checker/releases/assets/574675794"
 provenance = "github-attestations"
 
+[[tools.node]]
+version = "24.22.2"
+backend = "core:node"
+specifiers = ["24.22.2"]
+
+[tools.node."platforms.linux-arm64"]
+checksum = "sha256:95c264150aceb7f3437a29fd6984924f5f8d1511ea3cbd6c508b83f6c555dae2"
+url = "https://nodejs.org/dist/v24.22.2/node-v24.22.2-linux-arm64.tar.gz"
+
+[tools.node."platforms.linux-arm64-musl"]
+checksum = "sha256:70afd250a927fbc32f3d95a58597efdf14aa8ad194e894268f9b8309a2dab84e"
+url = "https://unofficial-builds.nodejs.org/download/release/v24.22.2/node-v24.22.2-linux-arm64-musl.tar.gz"
+
+[tools.node."platforms.linux-x64"]
+checksum = "sha256:361718c444e49af2ca5a110c83ba6a8901143f23ab285ebbef0341f391f482a9"
+url = "https://nodejs.org/dist/v24.22.2/node-v24.22.2-linux-x64.tar.gz"
+
+[tools.node."platforms.linux-x64-musl"]
+checksum = "sha256:867e322d67294e9c405f10cae5d70ed2e4940bb367fa47dbcb5151c9899d7c04"
+url = "https://unofficial-builds.nodejs.org/download/release/v24.22.2/node-v24.22.2-linux-x64-musl.tar.gz"
+
+[tools.node."platforms.macos-arm64"]
+checksum = "sha256:aa9549349e47dffaa42dcf95d6e06ade8c4bdafc980979883b88767670df385a"
+url = "https://nodejs.org/dist/v24.22.2/node-v24.22.2-darwin-arm64.tar.gz"
+
+[tools.node."platforms.macos-x64"]
+checksum = "sha256:d5e336d588c45be0c37dbd52cc29895593009ca4997a77a1fd02815131ed0e52"
+url = "https://nodejs.org/dist/v24.22.2/node-v24.22.2-darwin-x64.tar.gz"
+
+[tools.node."platforms.windows-x64"]
+checksum = "sha256:ca1bff5d8ead13c9f2ea404a176db46bd430704d5b5113734049fa365e7799e2"
+url = "https://nodejs.org/dist/v24.22.2/node-v24.22.2-win-x64.zip"
+
+[[tools."npm:html-validate"]]
+version = "11.17.0"
+aube = { path = "mise/locks/npm-html-validate/11.17.0", digest = "sha256:29c9cd8066082441ae9d0124adfaff3b88a166e80dcec00c06fe4b5bad1b22fa" }
+backend = "npm:html-validate"
+specifiers = ["11.17.0"]
+
+[[tools."npm:pa11y-ci"]]
+version = "4.1.1"
+aube = { path = "mise/locks/npm-pa11y-ci/4.1.1~5ac56c63", digest = "sha256:19e46457c8bbe109befd29214e8feeaa852e95c04482eb46dcfb3d96e3c6efdf" }
+backend = "npm:pa11y-ci"
+specifiers = ["4.1.1"]
+
+[tools."npm:pa11y-ci".options]
+allow_builds = '["puppeteer"]'
+
 [[tools.opentofu]]
 version = "1.13.1"
 backend = "aqua:opentofu/opentofu"
@@ -90,10 +138,10 @@ url = "https://github.com/opentofu/opentofu/releases/download/v1.13.1/tofu_1.13.
 url_api = "https://api.github.com/repos/opentofu/opentofu/releases/assets/603708102"
 
 [[tools."pypi:platen"]]
-version = "0.4.0"
+version = "0.7.0"
 backend = "pypi:platen"
-specifiers = ["0.4.0"]
-uv = { path = "mise/locks/pypi-platen/0.4.0", digest = "sha256:4908ca83704024debee551aa39da75677d8017992f81b4193ce93bbf6ea8d2d6" }
+specifiers = ["0.7.0"]
+uv = { path = "mise/locks/pypi-platen/0.7.0", digest = "sha256:7cad267310a50fb840dc543995cf57c8ed338c9320bcb2a0984ab456c2d12784" }
 
 [[tools.python]]
 version = "3.15.1"

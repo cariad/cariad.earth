@@ -58,8 +58,17 @@ jobs:
           cache: false         # Restored tools aren't verified, so don't cache them
           version: 2026.10.10
 
+      - name: Let Chrome create its sandbox # Ubuntu's AppArmor blocks it by default
+        run: sudo sysctl --write kernel.apparmor_restrict_unprivileged_userns=0
+
+      - name: Check the built site's accessibility
+        run: mise run lint:a11y
+
       - name: Lint files against .editorconfig
         run: mise run lint:editorconfig
+
+      - name: Validate the built HTML
+        run: mise run lint:html
 
       - name: Lint Markdown files
         run: mise run lint:markdown

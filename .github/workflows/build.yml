@@ -17,10 +17,10 @@ jobs:
           persist-credentials: false
 
       - name: Build the website
-        uses: cariad/platen-action@aae9a1e31c8f978bb57ef0478bba99c7887d2818 # v0.2.0
+        uses: cariad/platen-action@83218ddd652257b88f3e5ddb17a6ac080cfc7f56 # v0.3.0
         with:
           output: site/public
-          platen-version: 0.4.0
+          platen-version: 0.7.0
           templates: site/templates
           values: site/values.yml
 

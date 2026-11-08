@@ -1,0 +1,12 @@
+{
+  "defaults": {
+    "includeNotices": true,
+    "includeWarnings": true,
+    "runners": [
+      "axe"
+    ]
+  },
+  "urls": [
+    "http://localhost:1441/"
+  ]
+}

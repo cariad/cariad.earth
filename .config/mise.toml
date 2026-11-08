@@ -4,9 +4,16 @@ min_version = "2026.10.10"
 [settings]
 minimum_release_age = "7d"
 
+[env]
+UV_CONFIG_FILE = "{{config_root}}/.config/uv.toml"
+
 [tasks.build]
 description = "Build the website"
-run = "platen site/templates site/values.yml site/public"
+run = "platen --templates site/templates --values site/values.yml --out site/public"
+
+[tasks.serve]
+description = "Serve the website"
+run = "platen --templates site/templates --values site/values.yml --out site/public --serve"
 
 [tasks."infra:init"]
 description = "Initialise the OpenTofu modules"
@@ -19,9 +26,27 @@ run = [
 description = "Run the linters"
 depends = ["lint:*"]
 
+[tasks."lint:a11y"]
+depends = [
+  "build",
+]
+description = "Check the built site's accessibility"
+run = '''
+python -m http.server --bind 127.0.0.1 --directory site/public 1441 2> /dev/null &
+trap 'kill $!' EXIT
+pa11y-ci --config .config/pa11yci.json
+'''
+
 [tasks."lint:editorconfig"]
 description = "Lint files against .editorconfig"
 run = "editorconfig-checker"
+
+[tasks."lint:html"]
+depends = [
+  "build",
+]
+description = "Validate the built HTML"
+run = "html-validate --config .config/htmlvalidate.json site/public"
 
 [tasks."lint:markdown"]
 description = "Lint Markdown files"
@@ -48,11 +73,19 @@ run = "zizmor --strict-collection ."
 
 # Run `mise outdated --bump` to check for updates.
 [tools]
-editorconfig-checker = "4.0.2"  # Lint files against .editorconfig
-opentofu = "1.13.1"             # Infrastructure as code
-"pypi:platen" = "0.4.0"         # Build the website
-python = "3.15.1"               # Run Platen
-rumdl = "0.2.79"                # Lint Markdown files
-tombi = "1.8.4"                 # Lint TOML files
-uv = "0.13.5"                   # Install and lock Platen
-zizmor = "1.31.0"               # Audit GitHub Actions files
+editorconfig-checker = "4.0.2"   # Lint files against .editorconfig
+node = "24.22.2"                 # Run html-validate and pa11y-ci (Puppeteer can't unzip Chrome on Node 26)
+"npm:html-validate" = "11.17.0"  # Validate the built HTML
+opentofu = "1.13.1"              # Infrastructure as code
+"pypi:platen" = "0.7.0"          # Build the website
+python = "3.15.1"                # Run Platen
+rumdl = "0.2.79"                 # Lint Markdown files
+tombi = "1.8.4"                  # Lint TOML files
+uv = "0.13.5"                    # Install and lock Platen
+zizmor = "1.31.0"                # Audit GitHub Actions files
+
+[tools."npm:pa11y-ci"]
+allow_builds = [
+  "puppeteer",     # Let Puppeteer download its pinned Chrome
+]
+version = "4.1.1"

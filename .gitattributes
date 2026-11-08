@@ -1,12 +1,15 @@
 * text=auto eol=lf
 
+*.css          text
 *.hcl          text
 *.html         text
+*.json         text
 *.lock         text
 *.md           text diff=markdown
 *.tf           text
 *.tofu         text
 *.toml         text
+*.yaml         text
 *.yml          text
 
 .editorconfig  text
