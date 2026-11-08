@@ -1,0 +1,2 @@
+# Exempt these packages from mise's `minimum_release_age` when locking Platen.
+exclude-newer-package = { crumpet = false, notwork = false, platen = false, rootle = false }
