@@ -1,6 +1,8 @@
 .rumdl_cache/
 .terraform/
-site/public/
+
+site/public/*
+!site/public/fonts/
 
 *.log
 *.tfplan
