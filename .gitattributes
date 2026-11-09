@@ -1,5 +1,7 @@
 * text=auto eol=lf
 
+*.woff2        binary
+
 *.css          text
 *.hcl          text
 *.html         text
