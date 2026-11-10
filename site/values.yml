@@ -20,6 +20,28 @@ employments:
           - Docker
           - Python
 
+      - title: Security
+        content: >-
+            I wrote the proposal for our single sign-on service, then designed and built it.
+            This allows our customers to log in just once to access every application, and saves our engineers the effort of rolling their own authentication every time.
+
+            The service follows the backend-for-frontend pattern:
+            refresh tokens are held server-side in Redis, with Lua scripting for atomicity, and never reach the browser.
+            Users log in through OAuth 2.0 and OpenID Connect, with PKCE, against Cognito.
+
+            I also wrote our hardening pattern for services, which the single sign-on service adopted:
+            containers run as non-root with a read-only root filesystem and all Linux capabilities dropped, sit behind a WAF with rate limits, and refuse to start if misconfigured.
+
+        tags:
+          - OAuth 2.0
+          - OIDC
+          - Cognito
+          - Docker
+          - Linux
+          - Redis
+          - SSO
+          - WAF
+
   - dates:
       from: July 2019
       to: January 2025
