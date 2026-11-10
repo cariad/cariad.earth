@@ -4,3 +4,19 @@ introduction: >-
   I'm Cariad — pronounced <em>carry-add</em>.
 
   I'm a senior software engineer at <a href="https://www.digilab.ai/">digiLab</a> in Exeter, United Kingdom, where I build Python backends, deploy infrastructure to AWS, and keep an eye on security.
+
+employments:
+  - dates:
+      from: January 2025
+      to: present
+    name: digiLab
+
+  - dates:
+      from: July 2019
+      to: January 2025
+    name: Self-employed
+
+  - dates:
+      from: May 2005
+      to: July 2019
+    name: Thomson Reuters Tax & Accounting
