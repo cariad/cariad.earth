@@ -9,6 +9,7 @@
   --space-0: 5rem;
   --space-1: 2rem;
   --space-2: 1rem;
+  --space-3: 0.25rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -69,8 +70,19 @@ h2 {
 }
 
 h3 {
+  border-bottom: 1px solid lightgray;
+
+  font-size: 1.4rem;
+  font-weight: 700;
+
+  margin-bottom: var(--space-2);
+  padding-bottom: var(--space-3);
+}
+
+h4 {
   font-size: 1rem;
   font-weight: 700;
+  margin-bottom: var(--space-3);
 }
 
 html {
@@ -88,7 +100,7 @@ body {
   font-family: "SN Pro", sans-serif;
   line-height: 1.5;
   margin-inline: auto;
-  width: min(70ch, 100% - 2rem);
+  width: min(75ch, 100% - 2rem);
 }
 
 #employments > section {
@@ -107,6 +119,24 @@ body {
 
 #employments .detail {
   flex: 1 1 40ch;
+}
+
+.tags {
+  display: flex;
+  flex-basis: row wrap;
+  font-size: var(--text-small);
+  gap: 0.6rem;
+  list-style: none;
+  padding: 0;
+  text-transform: lowercase;
+}
+
+.tags li {
+  background-color: #F3DE8A;
+  color: #444;
+  border-radius: 0.4rem;
+  font-weight: 500;
+  padding: 0.05rem 0.6rem;
 }
 
 @font-face {

@@ -10,6 +10,15 @@ employments:
       from: January 2025
       to: present
     name: digiLab
+    projects:
+      - title: Uncertainty Engine
+        content: >-
+          I contribute to the design, development, and reliability of the <em>Uncertainty Engine</em>: a SaaS machine learning platform that models complex simulations and quantifies uncertainty, so safety-critical industries like fusion energy can make decisions from sparse or noisy data.
+
+        tags:
+          - AWS
+          - Docker
+          - Python
 
   - dates:
       from: July 2019
