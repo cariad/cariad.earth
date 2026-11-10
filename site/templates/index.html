@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="/202611100710.css">
+    <link rel="stylesheet" href="/202611100721.css">
 
     <title>{{ name }} - CV</title>
   </head>
@@ -20,6 +20,29 @@
       {% for p in introduction.splitlines() %}
         <p>{{ p | safe }}</p>
       {% endfor %}
+
+      <h2>Employment</h2>
+
+      <div id="employments">
+
+        {% for employment in employments %}
+
+          <section>
+
+            <div class="date">
+              {{ employment.dates.from }} - {{ employment.dates.to }}
+            </div>
+
+            <div class="detail">
+              <h3>{{ employment.name }}</h3>
+            </div>
+
+          </section>
+
+        {% endfor %}
+
+      </div>
+
     </main>
 
   </body>
