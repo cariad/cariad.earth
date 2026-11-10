@@ -6,6 +6,7 @@
 
   --space-0: 5rem;
   --space-1: 2rem;
+  --space-2: 1rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -37,6 +38,7 @@ h6 {
 
 p {
   text-wrap: pretty;
+  margin-bottom: var(--space-2);
 }
 
 h1,
@@ -47,7 +49,7 @@ h5,
 h6 {
   font-family: "Geologica", sans-serif;
   font-weight: 800;
-  letter-spacing: -0.1rem;
+  letter-spacing: -0.05rem;
   text-wrap: balance;
 }
 
@@ -71,7 +73,7 @@ body {
   font-family: "SN Pro", sans-serif;
   line-height: 1.5;
   margin-inline: auto;
-  width: min(58ch, 100% - 2rem);
+  width: min(70ch, 100% - 2rem);
 }
 
 @font-face {

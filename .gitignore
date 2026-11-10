@@ -8,3 +8,5 @@ site/public/*
 *.tfplan
 *.tfstate
 *.tfstate.*
+
+scratch.*
