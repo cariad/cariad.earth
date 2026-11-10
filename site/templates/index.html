@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="/202611100721.css">
+    <link rel="stylesheet" href="/202611100820.css">
 
     <title>{{ name }} - CV</title>
   </head>
@@ -35,6 +35,20 @@
 
             <div class="detail">
               <h3>{{ employment.name }}</h3>
+
+              {% for project in employment.projects | default([]) %}
+                <h4>{{ project.title }}</h4>
+
+                {% for p in project.content.splitlines() %}
+                  <p>{{ p | safe }}</p>
+                {% endfor %}
+
+                <ul class="tags">
+                  {% for tag in project.tags %}
+                    <li>{{ tag | safe }}</li>
+                  {% endfor %}
+                </ul>
+              {% endfor %}
             </div>
 
           </section>
