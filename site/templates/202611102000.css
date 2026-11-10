@@ -9,7 +9,7 @@
   --space-0: 5rem;
   --space-1: 2rem;
   --space-2: 1rem;
-  --space-3: 0.25rem;
+  --space-3: 0.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -86,7 +86,7 @@ h4 {
 }
 
 html {
-  font-size: 140%;
+  font-size: 130%;
 
   padding-top: var(--space-0);
   padding-bottom: var(--space-0);
@@ -100,7 +100,7 @@ body {
   font-family: "SN Pro", sans-serif;
   line-height: 1.5;
   margin-inline: auto;
-  width: min(75ch, 100% - 2rem);
+  width: min(75ch, 100% - 4rem);
 }
 
 #employments > section {
@@ -121,9 +121,13 @@ body {
   flex: 1 1 40ch;
 }
 
+.project + .project {
+  margin-top: var(--space-1);
+}
+
 .tags {
   display: flex;
-  flex-basis: row wrap;
+  flex-flow: row wrap;
   font-size: var(--text-small);
   gap: 0.6rem;
   list-style: none;
