@@ -24,7 +24,7 @@ employments:
         content: >-
           I designed the platform's architecture for over 50 queue-driven services on ECS Fargate in private subnets, reaching AWS services through VPC endpoints, and for public APIs behind API Gateway with Cognito authorisers.
 
-          After prototyping with hand-written CloudFormation to verify the design, I built the AWS CDK application that launched production and now deploys every customer's  environment.
+          After prototyping with hand-written CloudFormation to verify the design, I built the AWS CDK application that launched production and now deploys every customer's environment.
 
           I gave every service an IAM role and security group scoped tightly to its work, and I set up CloudWatch alarms that monitor availability, errors, and latency.
           These alarms have pinpointed several production incidents, like requests outlasting API Gateway's timeout, and helped the team to deploy effective fixes quickly.
@@ -48,6 +48,38 @@ employments:
 
       - title: Security
         content: >-
+          I implemented technical controls for digiLab's SOC 2 audit: API monitoring with CloudWatch alarms, S3 access logging, VPC flow logs, AWS Backup for customer data, and a disaster recovery runbook to restore those backups.
+          When the audit needed evidence, I deleted my own production data, then followed the runbook to restore it.
+          I monitored the controls and collected their evidence in Sprinto, our compliance platform.
+          digiLab <a href="https://trust.digilab.ai/compliance">passed the audit</a>.
+
+          I made AWS Secrets Manager our standard for storing secrets, and wrote the scripts and runbooks that the team uses to manage them.
+          For new MongoDB databases and Redis clusters, I make sure their network allow-lists accept connections only from the platform.
+          I also triage our Dependabot alerts into work that the team can plan.
+
+          Our CISO asked me to research and recommend a third-party penetration tester for the platform.
+          I spoke to several providers, and judged them on their reputation and on what those conversations told me about their abilities.
+          My recommendations were accepted, and the test is pending.
+
+          When an independent security reviewer needed access to our AWS account, I defined their IAM user in code, with an expiry date after which their access was revoked automatically.
+
+        tags:
+          - AWS Backup
+          - CloudWatch
+          - Dependabot
+          - disaster recovery
+          - IAM
+          - MongoDB
+          - penetration testing
+          - Redis
+          - S3
+          - Secrets Manager
+          - SOC 2
+          - Sprinto
+          - VPC
+
+      - title: Authentication
+        content: >-
             I wrote the proposal for our single sign-on service, then designed and built it.
             This allows our customers to log in just once to access every application, and saves our engineers the effort of rolling their own authentication every time.
 
@@ -57,6 +89,8 @@ employments:
 
             I also wrote our hardening pattern for services, which the single sign-on service adopted:
             containers run as non-root with a read-only root filesystem and all Linux capabilities dropped, sit behind a WAF with rate limits, and refuse to start if misconfigured.
+
+            I designed the service's logging so that no code path can emit a token, cookie, or session ID, and validated redirect origins against a tested list of bypass techniques.
 
         tags:
           - OAuth 2.0
