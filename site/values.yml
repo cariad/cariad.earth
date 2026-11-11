@@ -3,7 +3,7 @@ introduction: >-
   Hello! 👋
   I'm Cariad — pronounced <em>carry-add</em>.
 
-  I'm a senior software engineer at <a href="https://www.digilab.ai/">digiLab</a> in Exeter, United Kingdom, where I build Python backends, deploy infrastructure to AWS, and keep an eye on security.
+  I'm a senior software engineer at <a href="https://www.digilab.ai/">digiLab</a> in Exeter, United Kingdom, where I build Python backends, deploy infrastructure to AWS, and look after security.
 
 employments:
   - dates:
@@ -19,6 +19,32 @@ employments:
           - AWS
           - Docker
           - Python
+
+      - title: Infrastructure
+        content: >-
+          I designed the platform's architecture for over 50 queue-driven services on ECS Fargate in private subnets, reaching AWS services through VPC endpoints, and for public APIs behind API Gateway with Cognito authorisers.
+
+          After prototyping with hand-written CloudFormation to verify the design, I built the AWS CDK application that launched production and now deploys every customer's  environment.
+
+          I gave every service an IAM role and security group scoped tightly to its work, and I set up CloudWatch alarms that monitor availability, errors, and latency.
+          These alarms have pinpointed several production incidents, like requests outlasting API Gateway's timeout, and helped the team to deploy effective fixes quickly.
+
+          I documented the delivery process, and my colleagues now create new customer environments from that documentation alone.
+          I also cut the process from days down to hours, so the team can deliver environments on the day they're requested.
+
+        tags:
+          - API Gateway
+          - AWS
+          - CDK
+          - CloudFormation
+          - CloudWatch
+          - Cognito
+          - ECS Fargate
+          - IAM
+          - infrastructure as code
+          - monitoring
+          - SQS
+          - VPC
 
       - title: Security
         content: >-
