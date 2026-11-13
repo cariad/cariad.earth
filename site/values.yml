@@ -78,6 +78,27 @@ employments:
           - Sprinto
           - VPC
 
+      - title: CI/CD
+        content: >-
+          I built several composite actions for GitHub Actions that our workflows share, including one that authenticates Poetry to CodeArtifact so that projects with private dependencies can be linted and tested in CI, another that builds Docker images and pushes them to ECR, and one that starts our deployment pipeline for the change that just passed testing.
+          Over 70 of our repositories use these actions.
+
+          I proposed and defined the IAM roles that our GitHub Actions workflows assume through GitHub's OIDC provider, replacing the long-lived access keys that the platform's prototype used.
+          Each kind of job has a specific role with the least-privilege IAM policy it needs.
+
+          When <a href="https://github.blog/changelog/2026-04-23-immutable-subject-claims-for-github-actions-oidc-tokens/">GitHub changed the format of its OIDC subject claims</a>, workflows in newly created repositories couldn't assume those roles, so they couldn't lint, test, or publish.
+          I traced the failure to the subject pattern in the roles' trust policies, which didn't match the new claims carrying an immutable ID appended to our organisation's name.
+          I updated the trust policies to explicitly include our immutable ID, rather than widen the pattern's wildcard, which unblocked development on the affected repositories.
+
+        tags:
+          - CodeArtifact
+          - Docker
+          - ECR
+          - GitHub Actions
+          - IAM
+          - OIDC
+          - Poetry
+
       - title: Authentication
         content: >-
             I wrote the proposal for our single sign-on service, then designed and built it.
@@ -108,7 +129,7 @@ employments:
           The pipeline is self-mutating, so adding a new environment is a configuration change.
 
           I designed each release as a fixed set of immutable images, so production receives only what we tested in UAT, even if commits land mid-promotion.
-          Each release resolves its images just once during synthesis, from Systems Manager Parameter Store where my CI/CD scripts record the digest of each service's latest deployable image.
+          Each release resolves its images just once during synthesis, from Systems Manager Parameter Store where my GitHub Actions record the digest of each service's latest deployable image.
 
           Our AI workers are released with semantic versions. I wrote the proposal for how to deliver that, then updated the pipeline to support side-by-side versions, and wrote the recipe that my colleagues followed to update the workers.
 
