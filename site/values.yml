@@ -113,6 +113,8 @@ employments:
 
             I designed the service's logging so that no code path can emit a token, cookie, or session ID, and validated redirect origins against a tested list of bypass techniques.
 
+            I wrote the scripts and documentation that give engineers local certificates and domain names for testing their applications against the live authentication service.
+
         tags:
           - OAuth 2.0
           - OIDC
@@ -143,6 +145,33 @@ employments:
           - runbooks
           - semantic versioning
           - Systems Manager Parameter Store
+
+      - title: Developer experience
+        content: >-
+          Developers building AI workers used to be limited to unit testing their changes before merging them, because running a worker with real datasets, models, or workflows required it to be deployed, which could take up to an hour.
+          I proposed and built infrastructure and a Bash script that starts a local worker then registers it in a cloud environment, so it can be tested with real workflows, datasets, and models.
+          Developers can now test a change in seconds.
+
+          I started and host workshops that teach machine learning and forward-deployed engineers how to build and test workers, and running workers locally is now routine.
+
+          Our private Python packages used to be installed from GitHub with deploy keys, which discouraged engineers from packaging shared code.
+          I proposed and led our move to a private package index in CodeArtifact, which I defined in infrastructure as code, and wrote the composite action that publishes to it. The team migrated every package, then I retired the deploy keys.
+          We now publish more packages and duplicate less code.
+
+          My colleagues start new Python packages from my template repository: a stub package with Poetry and the GitHub Actions workflows that lint, test, and release it.
+
+          My Docker build-and-push action also creates its target ECR repository, so a new GitHub repository can publish its first image without an infrastructure deployment.
+
+        tags:
+          - Bash
+          - CodeArtifact
+          - Docker
+          - ECR
+          - GitHub Actions
+          - IaC
+          - Poetry
+          - Python
+          - workshops
 
   - dates:
       from: July 2019
