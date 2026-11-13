@@ -102,6 +102,27 @@ employments:
           - SSO
           - WAF
 
+      - title: Release engineering
+        content: >-
+          I built our deployment pipeline with CDK Pipelines on CodePipeline, which deploys every change to a development environment, then promotes it through our eight UAT and production environments after manual approval.
+          The pipeline is self-mutating, so adding a new environment is a configuration change.
+
+          I designed each release as a fixed set of immutable images, so production receives only what we tested in UAT, even if commits land mid-promotion.
+          Each release resolves its images just once during synthesis, from Systems Manager Parameter Store where my CI/CD scripts record the digest of each service's latest deployable image.
+
+          Our AI workers are released with semantic versions. I wrote the proposal for how to deliver that, then updated the pipeline to support side-by-side versions, and wrote the recipe that my colleagues followed to update the workers.
+
+          I wrote a runbook for promoting changes directly into higher environments during emergencies, such as when a breaking edge case is discovered at a sensitive time. The fix still enters the pipeline as a new immutable image, and the runbook guides engineers through manually deploying that image where it's needed.
+          My colleagues have followed it to resolve several critical issues, and it's worked every time.
+
+        tags:
+          - CDK Pipelines
+          - CodePipeline
+          - immutable releases
+          - runbooks
+          - semantic versioning
+          - Systems Manager Parameter Store
+
   - dates:
       from: July 2019
       to: January 2025

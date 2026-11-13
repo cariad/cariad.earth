@@ -80,13 +80,13 @@ h3 {
 }
 
 h4 {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: var(--space-3);
 }
 
 html {
-  font-size: 130%;
+  font-size: 115%;
 
   padding-top: var(--space-0);
   padding-bottom: var(--space-0);
@@ -98,9 +98,9 @@ body {
   background: var(--background-color);
   color: var(--text-color);
   font-family: "SN Pro", sans-serif;
-  line-height: 1.5;
+  line-height: 1.4;
   margin-inline: auto;
-  width: min(75ch, 100% - 4rem);
+  width: min(72ch, 100% - 2rem);
 }
 
 #employments > section {
