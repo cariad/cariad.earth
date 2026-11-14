@@ -127,7 +127,7 @@ employments:
 
       - title: Release engineering
         content: >-
-          I built our deployment pipeline with CDK Pipelines on CodePipeline, which deploys every change to a development environment, then promotes it through our eight UAT and production environments after manual approval.
+          I built our deployment pipeline with CDK Pipelines on CodePipeline, which deploys every change to a development environment, then promotes it through our seven UAT and production environments after manual approval.
           The pipeline is self-mutating, so adding a new environment is a configuration change.
 
           I designed each release as a fixed set of immutable images, so production receives only what we tested in UAT, even if commits land mid-promotion.
@@ -172,6 +172,33 @@ employments:
           - Poetry
           - Python
           - workshops
+
+      - title: Reliability engineering
+        content: >-
+          I built the end-to-end test suite that's the team's primary signal that an environment is healthy.
+          The tests use only our public APIs and Python SDK, and run real AI workflows as a human would.
+          The suite runs on a schedule against all our environments and notifies the team in Slack when a run fails.
+
+          AI workflow output can be non-deterministic, so I wrote a testing framework for asserting that results have the expected shape and values within a tolerance.
+
+          I built integration tests for several backend services, which start transient Redis and MongoDB databases and run on every pull request in GitHub Actions.
+
+          When the end-to-end tests started failing intermittently, I traced the cause to parallel processes racing on the SDK's token cache, and <a href="https://github.com/digiLab-ai/uncertainty-engine-sdk/pull/252">fixed the SDK to write its cache atomically</a>, which stopped the failures.
+
+          After a release doubled the number of AI workers in our development environment, the registry that tracks them intermittently took seconds rather than milliseconds to respond.
+          I suspected the registry's health checks on its workers were blocking its API.
+          I'd developed those checks behind a feature flag, so I disabled them with an environment variable and the slowness stopped.
+          I also realised the checks were unnecessary, so I made the case to remove them.
+          When the problem appeared in UAT, the team agreed, and removing the checks resolved it.
+
+        tags:
+          - end-to-end testing
+          - GitHub Actions
+          - integration testing
+          - MongoDB
+          - Python
+          - Redis
+          - root-cause analysis
 
   - dates:
       from: July 2019
