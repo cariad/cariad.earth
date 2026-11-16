@@ -200,6 +200,35 @@ employments:
           - Redis
           - root-cause analysis
 
+      - title: Cost and scaling
+        content: >-
+          Our AWS bill fell by about a quarter in two months, mainly through two changes I made.
+
+          Every AI worker takes jobs from an SQS queue, but each also had a load balancer left over from the prototype, where it exposed the worker's debug page.
+          I analysed what still depended on them, proposed removing them, then did so for 200+ workers across every environment with no downtime.
+          Load-balancing spend fell 55% and stayed down.
+
+          I designed how our workers scale, and built the autoscaling in our registry rather than with Application Auto Scaling, because the registry already knew every worker's queue and versions.
+          A worker whose queue sits idle scales to zero by default, and when a workflow starts, every worker in its graph scales out, so users usually don't wait.
+          Workers can be held warm for days through our private API, so before a demo the team runs a script instead of disabling scaling by hand and re-enabling it afterwards.
+
+          Even with scaling enabled only outside production, container spend fell 20% over those two months.
+
+          To enable scaling in production, where several versions of each worker run, I designed and built per-version scaling: superseded versions scale to zero.
+          Production has had no scaling-related issues since.
+
+          I applied cost allocation tags to track spend per environment, and bounded storage growth with S3 lifecycle rules and Redis eviction.
+
+        tags:
+          - AWS
+          - scaling
+          - cost optimisation
+          - ECS Fargate
+          - load balancing
+          - Redis
+          - S3
+          - SQS
+
   - dates:
       from: July 2019
       to: January 2025
