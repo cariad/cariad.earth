@@ -1,6 +1,12 @@
 name: Cariad Eccleston
+contact:
+  email: cariad@cariad.earth
+  links:
+    - https://github.com/cariad
+  location: Exmouth, Devon, United Kingdom
+
 introduction: >-
-  Hello! 👋
+  Hello! <span class="screen-only">👋</span>
   I'm Cariad — pronounced <em>carry-add</em>.
 
   I'm a senior software engineer at <a href="https://www.digilab.ai/">digiLab</a> in Exeter, United Kingdom, where I build Python backends, deploy infrastructure to AWS, and look after security.
@@ -8,8 +14,10 @@ introduction: >-
 employments:
   - dates:
       from: January 2025
-      to: present
+      to: Present
     name: digiLab
+    title: Senior Software Engineer
+    location: Exeter, United Kingdom
     projects:
       - title: Uncertainty Engine
         content: >-
@@ -233,8 +241,24 @@ employments:
       from: July 2019
       to: January 2025
     name: Self-employed
+    title: Contract Software Engineer
+    location: Remote, United Kingdom
 
   - dates:
       from: May 2005
       to: July 2019
     name: Thomson Reuters Tax & Accounting
+    title: Senior Software Engineer
+    location: Exmouth, Devon, United Kingdom
+
+education:
+  - dates:
+      from: Month YYYY
+      to: Month YYYY
+    qualification: Qualification
+    institution: Institution
+
+certifications:
+  - name: Certification
+    issuer: Issuer
+    date: Month YYYY

@@ -24,3 +24,13 @@ Don't run OpenTofu yourself, whether directly, through `mise exec`, or through t
 
 - **Before linting:** `lint:tofu` validates the root modules, so it needs `mise run infra:init` first, and again after a module `source` changes. Ask me to run both.
 - **The bootstrap's state:** `infra/bootstrap/terraform.tfstate` is gitignored, and it's the only record of the resources the bootstrap created. Never delete, move, or overwrite it.
+
+## The PDF
+
+Recruiters upload the PDF to applicant tracking systems (ATS), which convert it to plain text and parse only that text. The print styles make that text read like a plain-text CV, and `lint:pdf` checks that text extractors recover it. The check can't enforce the layout that the parser vendors document, so keep to these rules when you change the template or the stylesheet:
+
+- **Jobs:** every job prints a date line, then the title, then "Employer, Location", each on its own line.
+- **No headings or labels inside a job:** project titles print as bold lead-ins, and tag lists have no label such as "Skills:".
+- **Separators:** text that separates printed items must be in the DOM, because some readers lose CSS-generated text.
+- **Layout:** flex, grid, floats and letter-spacing belong in `@media screen`. Print is one column in normal flow.
+- **Changing what prints:** `scripts/check-pdf.cjs` lists the only things the print styles may do to the page's text, so change the two together.

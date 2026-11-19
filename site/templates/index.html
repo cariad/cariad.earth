@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="202611180750.css">
+    <link rel="stylesheet" href="202611191530.css">
 
     <title>{{ name }} - CV</title>
   </head>
@@ -15,7 +15,17 @@
     <main>
       <header>
         <h1>{{ name }}</h1>
+
+        <ul class="contact">
+          <li>{{ contact.location }}</li>
+          <li><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></li>
+          {% for link in contact.links %}
+            <li><a href="{{ link }}">{{ link }}</a></li>
+          {% endfor %}
+        </ul>
       </header>
+
+      <h2 class="print-only">Summary</h2>
 
       {% for p in introduction.splitlines() %}
         <p>{{ p | safe }}</p>
@@ -24,7 +34,7 @@
       {% set pdf = name ~ " (" ~ now("Europe/London").strftime("%Y-%m-%d %H-%M") ~ ").pdf" %}
       <p class="pdf">PDF: <a href="{{ pdf | urlencode }}">download</a></p>
 
-      <h2>Employment</h2>
+      <h2>Work Experience</h2>
 
       <div id="employments">
 
@@ -32,27 +42,22 @@
 
           <section>
 
-            <div class="date">
-              {{ employment.dates.from }} - {{ employment.dates.to }}
-            </div>
+            <p class="dates">{{ employment.dates.from }} - {{ employment.dates.to }}</p>
 
             <div class="detail">
-              <h3>{{ employment.name }}</h3>
+              <h3>{{ employment.title }}</h3>
+              <p class="organisation">{{ employment.name }}{% if employment.location is defined %}, {{ employment.location }}{% endif %}</p>
 
               {% for project in employment.projects | default([]) %}
-                <section class="project">
-                  <h4>{{ project.title }}</h4>
+                <div class="project">
+                  <h4 class="screen-only">{{ project.title }}</h4>
 
                   {% for p in project.content.splitlines() %}
-                    <p>{{ p | safe }}</p>
+                    <p>{% if loop.first %}<strong class="print-only">{{ project.title }}. </strong>{% endif %}{{ p | safe }}</p>
                   {% endfor %}
 
-                  <ul class="tags">
-                    {% for tag in project.tags %}
-                      <li>{{ tag | safe }}</li>
-                    {% endfor %}
-                  </ul>
-                </section>
+                  <p class="tags">{% for tag in project.tags %}<span class="tag">{{ tag | safe }}</span>{% if not loop.last %}<span class="sep">, </span>{% endif %}{% endfor %}</p>
+                </div>
               {% endfor %}
             </div>
 
@@ -61,6 +66,35 @@
         {% endfor %}
 
       </div>
+
+      <h2>Education</h2>
+
+      <div id="education">
+
+        {% for entry in education %}
+
+          <section>
+
+            <p class="dates">{{ entry.dates.from }} - {{ entry.dates.to }}</p>
+
+            <div class="detail">
+              <h3>{{ entry.qualification }}</h3>
+              <p class="organisation">{{ entry.institution }}</p>
+            </div>
+
+          </section>
+
+        {% endfor %}
+
+      </div>
+
+      <h2>Certifications</h2>
+
+      <ul class="certifications">
+        {% for entry in certifications %}
+          <li>{{ entry.name }}, {{ entry.issuer }}, {{ entry.date }}</li>
+        {% endfor %}
+      </ul>
 
     </main>
 
