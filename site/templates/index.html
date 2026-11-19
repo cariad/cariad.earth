@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="/202611201200.css">
+    <link rel="stylesheet" href="202611180750.css">
 
     <title>{{ name }} - CV</title>
   </head>
@@ -20,6 +20,9 @@
       {% for p in introduction.splitlines() %}
         <p>{{ p | safe }}</p>
       {% endfor %}
+
+      {% set pdf = name ~ " (" ~ now("Europe/London").strftime("%Y-%m-%d %H-%M") ~ ").pdf" %}
+      <p class="pdf">PDF: <a href="{{ pdf | urlencode }}">download</a></p>
 
       <h2>Employment</h2>
 

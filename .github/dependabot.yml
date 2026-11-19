@@ -3,6 +3,8 @@ version: 2
 updates:
   - cooldown:
       default-days: 7
+      exclude:
+        - cariad/*
     directory: /
     package-ecosystem: github-actions
     schedule:

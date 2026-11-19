@@ -2,6 +2,7 @@
 
 *.woff2        binary
 
+*.cjs          text
 *.css          text
 *.hcl          text
 *.html         text

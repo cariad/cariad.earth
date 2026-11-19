@@ -8,8 +8,19 @@ minimum_release_age = "7d"
 UV_CONFIG_FILE = "{{config_root}}/.config/uv.toml"
 
 [tasks.build]
-description = "Build the website"
+description = "Build the website and PDF"
+run = [
+  { task = "build:html" },
+  { task = "build:pdf" },
+]
+
+[tasks."build:html"]
+description = "Build the website without its PDF"
 run = "platen --templates site/templates --values site/values.yml --out site/public"
+
+[tasks."build:pdf"]
+description = "Convert the built website to a PDF"
+run = 'NODE_PATH="$(mise where npm:puppeteer)/node_modules" node scripts/pdf.cjs'
 
 [tasks.serve]
 description = "Serve the website"
@@ -28,7 +39,7 @@ depends = ["lint:*"]
 
 [tasks."lint:a11y"]
 depends = [
-  "build",
+  "build:html",
 ]
 description = "Check the built site's accessibility"
 run = '''
@@ -43,7 +54,7 @@ run = "editorconfig-checker"
 
 [tasks."lint:html"]
 depends = [
-  "build",
+  "build:html",
 ]
 description = "Validate the built HTML"
 run = "html-validate --config .config/htmlvalidate.json site/public"
@@ -74,10 +85,10 @@ run = "zizmor --strict-collection ."
 # Run `mise outdated --bump` to check for updates.
 [tools]
 editorconfig-checker = "4.0.2"   # Lint files against .editorconfig
-node = "24.22.2"                 # Run html-validate and pa11y-ci (Puppeteer can't unzip Chrome on Node 26)
+node = "24.22.2"                 # Run html-validate, pa11y-ci and Puppeteer (which can't unzip Chrome on Node 26)
 "npm:html-validate" = "11.17.0"  # Validate the built HTML
 opentofu = "1.13.1"              # Infrastructure as code
-"pypi:platen" = "0.7.0"          # Build the website
+"pypi:platen" = "0.8.0"          # Build the website
 python = "3.15.1"                # Run Platen
 rumdl = "0.2.79"                 # Lint Markdown files
 tombi = "1.8.4"                  # Lint TOML files
@@ -89,3 +100,9 @@ allow_builds = [
   "puppeteer",     # Let Puppeteer download its pinned Chrome
 ]
 version = "4.1.1"
+
+[tools."npm:puppeteer"]
+allow_builds = [
+  "puppeteer",       # Let Puppeteer download its pinned Chrome
+]
+version = "24.43.1"  # Convert the built website to a PDF (pa11y-ci resolves the same version, so they share Chrome)
