@@ -73,6 +73,9 @@ jobs:
       - name: Lint Markdown files
         run: mise run lint:markdown
 
+      - name: Check the built PDF's text
+        run: mise run lint:pdf
+
       - name: Lint TOML files
         run: mise run lint:toml
 

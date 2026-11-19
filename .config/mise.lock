@@ -146,11 +146,23 @@ checksum = "sha256:6825ae311e9a15747ce2ede7b7e97c8bb744a4d271fa8113259eeeee3d094
 url = "https://github.com/opentofu/opentofu/releases/download/v1.13.1/tofu_1.13.1_windows_amd64.tar.gz"
 url_api = "https://api.github.com/repos/opentofu/opentofu/releases/assets/603708102"
 
+[[tools."pypi:pdfminer.six"]]
+version = "20260107"
+backend = "pypi:pdfminer.six"
+specifiers = ["20260107"]
+uv = { path = "mise/locks/pypi-pdfminer-six/20260107", digest = "sha256:4ff7f112338309002e9c9be715351542af0ba3a55e218e2c275d325449be474f" }
+
 [[tools."pypi:platen"]]
 version = "0.8.0"
 backend = "pypi:platen"
 specifiers = ["0.8.0"]
 uv = { path = "mise/locks/pypi-platen/0.8.0", digest = "sha256:b7a01d820de82dea113e47a65a6d289797e03539f87b7127de20a90001a75946" }
+
+[[tools."pypi:pypdfium2"]]
+version = "5.15.2"
+backend = "pypi:pypdfium2"
+specifiers = ["5.15.2"]
+uv = { path = "mise/locks/pypi-pypdfium2/5.15.2", digest = "sha256:f0f23896512c03be6902ddbc78398fce10dbe76b2e78cabc7756ea5796314bb4" }
 
 [[tools.python]]
 version = "3.15.1"
