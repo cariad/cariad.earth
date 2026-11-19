@@ -40,7 +40,7 @@ The `build` task uses [Platen](https://github.com/cariad/platen) to press the va
 mise run build
 ```
 
-CI also builds the website with [platen-action](https://github.com/cariad/platen-action) when a pull request is opened.
+CI also runs the `build` task when a pull request is opened.
 
 ## Publishing the website
 

@@ -97,6 +97,15 @@ specifiers = ["4.1.1"]
 [tools."npm:pa11y-ci".options]
 allow_builds = '["puppeteer"]'
 
+[[tools."npm:puppeteer"]]
+version = "24.43.1"
+aube = { path = "mise/locks/npm-puppeteer/24.43.1~7c51fed7", digest = "sha256:b62aa9129348d3974067389876d53acd8bbf5062802d76532887c62e7b567371" }
+backend = "npm:puppeteer"
+specifiers = ["24.43.1"]
+
+[tools."npm:puppeteer".options]
+allow_builds = '["puppeteer"]'
+
 [[tools.opentofu]]
 version = "1.13.1"
 backend = "aqua:opentofu/opentofu"
@@ -138,10 +147,10 @@ url = "https://github.com/opentofu/opentofu/releases/download/v1.13.1/tofu_1.13.
 url_api = "https://api.github.com/repos/opentofu/opentofu/releases/assets/603708102"
 
 [[tools."pypi:platen"]]
-version = "0.7.0"
+version = "0.8.0"
 backend = "pypi:platen"
-specifiers = ["0.7.0"]
-uv = { path = "mise/locks/pypi-platen/0.7.0", digest = "sha256:7cad267310a50fb840dc543995cf57c8ed338c9320bcb2a0984ab456c2d12784" }
+specifiers = ["0.8.0"]
+uv = { path = "mise/locks/pypi-platen/0.8.0", digest = "sha256:b7a01d820de82dea113e47a65a6d289797e03539f87b7127de20a90001a75946" }
 
 [[tools.python]]
 version = "3.15.1"
