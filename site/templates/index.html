@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="202611191530.css">
+    <link rel="stylesheet" href="202611191700.css">
 
     <title>{{ name }} - CV</title>
   </head>
@@ -17,11 +17,33 @@
         <h1>{{ name }}</h1>
 
         <ul class="contact">
-          <li>{{ contact.location }}</li>
-          <li><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></li>
+          <li class="location">
+            {{ contact.location }}
+          </li>
+
+          <li>
+            <a href="mailto:{{ contact.email }}">
+              {{ contact.email_icon | safe }}
+              {{ contact.email }}
+            </a>
+          </li>
+
           {% for link in contact.links %}
-            <li><a href="{{ link }}">{{ link }}</a></li>
+            <li>
+              <a href="{{ link.url }}">
+                {{ link.icon | safe }}
+
+                <span class="print-only">
+                  {{ link.url }}
+                </span>
+
+                <span class="screen-only">
+                  {{ link.url | replace("https://", "") }}
+                </span>
+              </a>
+            </li>
           {% endfor %}
+
         </ul>
       </header>
 
