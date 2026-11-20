@@ -12,10 +12,8 @@ contact:
   location: Exmouth, Devon, United Kingdom
 
 introduction: >-
-  Hello! <span class="screen-only">👋</span>
-  I'm Cariad — pronounced <em>carry-add</em>.
-
-  I'm a senior software engineer at <a href="https://www.digilab.ai/">digiLab</a> in Exeter, United Kingdom, where I build Python backends, deploy infrastructure to AWS, and look after security.
+  I'm a senior software engineer with more than 20 years' experience.
+  At <a href="https://www.digilab.ai/">digiLab</a> I build Python backends, deploy infrastructure to AWS, and look after security for our SaaS machine learning platform.
 
 employments:
   - dates:

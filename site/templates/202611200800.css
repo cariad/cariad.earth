@@ -4,7 +4,19 @@
   --background-color: #fbfbfb;
   --text-color: #333333;
 
+  /*
+    Web: a severe ramp, because the page has room to breathe.
+
+    On narrow screens, h1 and h2 shrink with the column so their words don't
+    break.
+  */
+  --text-root: 115%;
   --text-small: 0.85rem;
+  --text-body: 1rem;
+  --text-large: 1.1rem;
+  --text-h3: 1.5rem;
+  --text-h2: clamp(1.5rem, 13cqi, 2.5rem);
+  --text-h1: clamp(2rem, 19cqi, 4rem);
 
   --space-0: 5rem;
   --space-1: 2rem;
@@ -66,13 +78,13 @@ h4 {
 }
 
 h1 {
-  font-size: 3.8rem;
+  font-size: var(--text-h1);
   font-weight: 800;
   margin-bottom: var(--space-2);
 }
 
 h2 {
-  font-size: 2.4rem;
+  font-size: var(--text-h2);
   font-weight: 800;
 
   margin-top: var(--space-1);
@@ -80,18 +92,18 @@ h2 {
 }
 
 h3 {
-  font-size: 1.4rem;
+  font-size: var(--text-h3);
   font-weight: 700;
 }
 
 h4 {
-  font-size: 1.1rem;
+  font-size: var(--text-body);
   font-weight: 700;
   margin-bottom: var(--space-3);
 }
 
 html {
-  font-size: 115%;
+  font-size: var(--text-root);
 
   padding-top: var(--space-0);
   padding-bottom: var(--space-0);
@@ -112,6 +124,10 @@ body {
 #employments > section,
 #education > section {
   margin-bottom: var(--space-1);
+}
+
+.introduction {
+  font-size: var(--text-large);
 }
 
 .dates {
@@ -136,6 +152,10 @@ body {
 }
 
 @media screen {
+  main {
+    container-type: inline-size;
+  }
+
   h1,
   h2,
   h3,
@@ -436,10 +456,18 @@ body {
     --space-1: 2rem;
     --space-2: 1rem;
     --space-3: 0.5rem;
+
+    /* PDF: a conservative ramp, because space is at a premium. */
+    --text-root: 100%;
+    --text-small: 0.85rem;
+    --text-body: 1rem;
+    --text-large: var(--text-body);
+    --text-h3: 1.2rem;
+    --text-h2: 1.4rem;
+    --text-h1: 2rem;
   }
 
   html {
-    font-size: 100%;
     padding: 0;
   }
 
@@ -449,17 +477,8 @@ body {
     width: auto;
   }
 
-  h1 {
-    font-size: 2rem;
-  }
-
   h2 {
-    font-size: 1.4rem;
     text-transform: uppercase;
-  }
-
-  h3 {
-    font-size: 1.2rem;
   }
 
   h1,
