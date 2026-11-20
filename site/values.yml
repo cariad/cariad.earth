@@ -13,233 +13,26 @@ contact:
 
 introduction: >-
   I'm a senior software engineer with more than 20 years' experience.
-  At <a href="https://www.digilab.ai/">digiLab</a> I build Python backends, deploy infrastructure to AWS, and look after security for our SaaS machine learning platform.
+  At <a href="https://www.digilab.ai/">digiLab</a> I design and build Python backends, AWS infrastructure as code, security, and CI/CD for the <em>Uncertainty Engine</em>, a SaaS machine learning platform for safety-critical sectors like fusion energy.
 
 employments:
   - dates:
       from: January 2025
       to: Present
-    name: digiLab
+    name: digiLab Solutions Ltd
     title: Senior Software Engineer
     location: Exeter, United Kingdom
-    projects:
-      - title: Uncertainty Engine
-        content: >-
-          I contribute to the design, development, and reliability of the <em>Uncertainty Engine</em>: a SaaS machine learning platform that models complex simulations and quantifies uncertainty, so safety-critical industries like fusion energy can make decisions from sparse or noisy data.
-
-        tags:
-          - AWS
-          - Docker
-          - Python
-
-      - title: Infrastructure
-        content: >-
-          I designed the platform's architecture for over 50 queue-driven services on ECS Fargate in private subnets, reaching AWS services through VPC endpoints, and for public APIs behind API Gateway with Cognito authorisers.
-
-          After prototyping with hand-written CloudFormation to verify the design, I built the AWS CDK application that launched production and now deploys every customer's environment.
-
-          I gave every service an IAM role and security group scoped tightly to its work, and I set up CloudWatch alarms that monitor availability, errors, and latency.
-          These alarms have pinpointed several production incidents, like requests outlasting API Gateway's timeout, and helped the team to deploy effective fixes quickly.
-
-          I documented the delivery process, and my colleagues now create new customer environments from that documentation alone.
-          I also cut the process from days down to hours, so the team can deliver environments on the day they're requested.
-
-        tags:
-          - API Gateway
-          - AWS
-          - CDK
-          - CloudFormation
-          - CloudWatch
-          - Cognito
-          - ECS Fargate
-          - IAM
-          - infrastructure as code
-          - monitoring
-          - SQS
-          - VPC
-
-      - title: Security
-        content: >-
-          I implemented technical controls for digiLab's SOC 2 audit: API monitoring with CloudWatch alarms, S3 access logging, VPC flow logs, AWS Backup for customer data, and a disaster recovery runbook to restore those backups.
-          When the audit needed evidence, I deleted my own production data, then followed the runbook to restore it.
-          I monitored the controls and collected their evidence in Sprinto, our compliance platform.
-          digiLab <a href="https://trust.digilab.ai/compliance">passed the audit</a>.
-
-          I made AWS Secrets Manager our standard for storing secrets, and wrote the scripts and runbooks that the team uses to manage them.
-          For new MongoDB databases and Redis clusters, I make sure their network allow-lists accept connections only from the platform.
-          I also triage our Dependabot alerts into work that the team can plan.
-
-          Our CISO asked me to research and recommend a third-party penetration tester for the platform.
-          I spoke to several providers, and judged them on their reputation and on what those conversations told me about their abilities.
-          My recommendations were accepted, and the test is pending.
-
-          When an independent security reviewer needed access to our AWS account, I defined their IAM user in code, with an expiry date after which their access was revoked automatically.
-
-        tags:
-          - AWS Backup
-          - CloudWatch
-          - Dependabot
-          - disaster recovery
-          - IAM
-          - MongoDB
-          - penetration testing
-          - Redis
-          - S3
-          - Secrets Manager
-          - SOC 2
-          - Sprinto
-          - VPC
-
-      - title: CI/CD
-        content: >-
-          I built several composite actions for GitHub Actions that our workflows share, including one that authenticates Poetry to CodeArtifact so that projects with private dependencies can be linted and tested in CI, another that builds Docker images and pushes them to ECR, and one that starts our deployment pipeline for the change that just passed testing.
-          Over 70 of our repositories use these actions.
-
-          I proposed and defined the IAM roles that our GitHub Actions workflows assume through GitHub's OIDC provider, replacing the long-lived access keys that the platform's prototype used.
-          Each kind of job has a specific role with the least-privilege IAM policy it needs.
-
-          When <a href="https://github.blog/changelog/2026-04-23-immutable-subject-claims-for-github-actions-oidc-tokens/">GitHub changed the format of its OIDC subject claims</a>, workflows in newly created repositories couldn't assume those roles, so they couldn't lint, test, or publish.
-          I traced the failure to the subject pattern in the roles' trust policies, which didn't match the new claims carrying an immutable ID appended to our organisation's name.
-          I updated the trust policies to explicitly include our immutable ID, rather than widen the pattern's wildcard, which unblocked development on the affected repositories.
-
-        tags:
-          - CodeArtifact
-          - Docker
-          - ECR
-          - GitHub Actions
-          - IAM
-          - OIDC
-          - Poetry
-
-      - title: Authentication
-        content: >-
-            I wrote the proposal for our single sign-on service, then designed and built it.
-            This allows our customers to log in just once to access every application, and saves our engineers the effort of rolling their own authentication every time.
-
-            The service follows the backend-for-frontend pattern:
-            refresh tokens are held server-side in Redis, with Lua scripting for atomicity, and never reach the browser.
-            Users log in through OAuth 2.0 and OpenID Connect, with PKCE, against Cognito.
-
-            I also wrote our hardening pattern for services, which the single sign-on service adopted:
-            containers run as non-root with a read-only root filesystem and all Linux capabilities dropped, sit behind a WAF with rate limits, and refuse to start if misconfigured.
-
-            I designed the service's logging so that no code path can emit a token, cookie, or session ID, and validated redirect origins against a tested list of bypass techniques.
-
-            I wrote the scripts and documentation that give engineers local certificates and domain names for testing their applications against the live authentication service.
-
-        tags:
-          - OAuth 2.0
-          - OIDC
-          - Cognito
-          - Docker
-          - Linux
-          - Redis
-          - SSO
-          - WAF
-
-      - title: Release engineering
-        content: >-
-          I built our deployment pipeline with CDK Pipelines on CodePipeline, which deploys every change to a development environment, then promotes it through our seven UAT and production environments after manual approval.
-          The pipeline is self-mutating, so adding a new environment is a configuration change.
-
-          I designed each release as a fixed set of immutable images, so production receives only what we tested in UAT, even if commits land mid-promotion.
-          Each release resolves its images just once during synthesis, from Systems Manager Parameter Store where my GitHub Actions record the digest of each service's latest deployable image.
-
-          Our AI workers are released with semantic versions. I wrote the proposal for how to deliver that, then updated the pipeline to support side-by-side versions, and wrote the recipe that my colleagues followed to update the workers.
-
-          I wrote a runbook for promoting changes directly into higher environments during emergencies, such as when a breaking edge case is discovered at a sensitive time. The fix still enters the pipeline as a new immutable image, and the runbook guides engineers through manually deploying that image where it's needed.
-          My colleagues have followed it to resolve several critical issues, and it's worked every time.
-
-        tags:
-          - CDK Pipelines
-          - CodePipeline
-          - immutable releases
-          - runbooks
-          - semantic versioning
-          - Systems Manager Parameter Store
-
-      - title: Developer experience
-        content: >-
-          Developers building AI workers used to be limited to unit testing their changes before merging them, because running a worker with real datasets, models, or workflows required it to be deployed, which could take up to an hour.
-          I proposed and built infrastructure and a Bash script that starts a local worker then registers it in a cloud environment, so it can be tested with real workflows, datasets, and models.
-          Developers can now test a change in seconds.
-
-          I started and host workshops that teach machine learning and forward-deployed engineers how to build and test workers, and running workers locally is now routine.
-
-          Our private Python packages used to be installed from GitHub with deploy keys, which discouraged engineers from packaging shared code.
-          I proposed and led our move to a private package index in CodeArtifact, which I defined in infrastructure as code, and wrote the composite action that publishes to it. The team migrated every package, then I retired the deploy keys.
-          We now publish more packages and duplicate less code.
-
-          My colleagues start new Python packages from my template repository: a stub package with Poetry and the GitHub Actions workflows that lint, test, and release it.
-
-          My Docker build-and-push action also creates its target ECR repository, so a new GitHub repository can publish its first image without an infrastructure deployment.
-
-        tags:
-          - Bash
-          - CodeArtifact
-          - Docker
-          - ECR
-          - GitHub Actions
-          - IaC
-          - Poetry
-          - Python
-          - workshops
-
-      - title: Reliability engineering
-        content: >-
-          I built the end-to-end test suite that's the team's primary signal that an environment is healthy.
-          The tests use only our public APIs and Python SDK, and run real AI workflows as a human would.
-          The suite runs on a schedule against all our environments and notifies the team in Slack when a run fails.
-
-          AI workflow output can be non-deterministic, so I wrote a testing framework for asserting that results have the expected shape and values within a tolerance.
-
-          I built integration tests for several backend services, which start transient Redis and MongoDB databases and run on every pull request in GitHub Actions.
-
-          When the end-to-end tests started failing intermittently, I traced the cause to parallel processes racing on the SDK's token cache, and <a href="https://github.com/digiLab-ai/uncertainty-engine-sdk/pull/252">fixed the SDK to write its cache atomically</a>, which stopped the failures.
-
-          After a release doubled the number of AI workers in our development environment, the registry that tracks them intermittently took seconds rather than milliseconds to respond.
-          I suspected the registry's health checks on its workers were blocking its API.
-          I'd developed those checks behind a feature flag, so I disabled them with an environment variable and the slowness stopped.
-          I also realised the checks were unnecessary, so I made the case to remove them.
-          When the problem appeared in UAT, the team agreed, and removing the checks resolved it.
-
-        tags:
-          - end-to-end testing
-          - GitHub Actions
-          - integration testing
-          - MongoDB
-          - Python
-          - Redis
-          - root-cause analysis
-
-      - title: Cost and scaling
-        content: >-
-          Our AWS bill fell by about a quarter in two months, mainly through two changes I made.
-
-          Every AI worker takes jobs from an SQS queue, but each also had a load balancer left over from the prototype, where it exposed the worker's debug page.
-          I analysed what still depended on them, proposed removing them, then did so for 200+ workers across every environment with no downtime.
-          Load-balancing spend fell 55% and stayed down.
-
-          I designed how our workers scale, and built the autoscaling in our registry rather than with Application Auto Scaling, because the registry already knew every worker's queue and versions.
-          A worker whose queue sits idle scales to zero by default, and when a workflow starts, every worker in its graph scales out, so users usually don't wait.
-          Workers can be held warm for days through our private API, so before a demo the team runs a script instead of disabling scaling by hand and re-enabling it afterwards.
-
-          Even with scaling enabled only outside production, container spend fell 20% over those two months.
-
-          To enable scaling in production, where several versions of each worker run, I designed and built per-version scaling: superseded versions scale to zero.
-          Production has had no scaling-related issues since.
-
-          I applied cost allocation tags to track spend per environment, and bounded storage growth with S3 lifecycle rules and Redis eviction.
-
-        tags:
-          - AWS
-          - scaling
-          - cost optimisation
-          - ECS Fargate
-          - load balancing
-          - Redis
-          - S3
-          - SQS
+    highlights:
+      - I designed the platform's architecture for over 50 SQS-driven workers and FastAPI services running as Docker containers on ECS Fargate, each with an IAM role and security group scoped tightly to its work.
+      - I proposed an architectural change that made our workers' load balancers unnecessary, then removed them from over 200 deployments without downtime, and built scale-to-zero autoscaling, which cut AWS costs by about a quarter in 2 months.
+      - I built the AWS CDK application that launched production and deploys every customer environment, and cut provisioning from days to hours. I prototyped it in hand-written CloudFormation to verify the design, and colleagues provision from my documentation.
+      - I implemented controls such as CloudWatch monitoring, S3 access logs, and VPC flow logs for the <a href="https://trust.digilab.ai/compliance">SOC 2 audit that digiLab passed</a>, which got us through a nuclear energy customer's procurement. I tracked compliance in Sprinto, and tested my disaster recovery runbook by deleting my own data in production and restoring it all from AWS Backup in under an hour.
+      - I wrote the proposal for our single sign-on service, then designed and built it in Python. It uses Cognito for OAuth 2.0 and OpenID Connect with PKCE, and keeps refresh tokens server-side. It runs behind a WAF in non-root containers with all Linux capabilities dropped.
+      - I replaced the prototype's long-lived CI access keys with a least-privilege IAM role per kind of job, assumed by GitHub Actions via OIDC. When <a href="https://github.blog/changelog/2026-04-23-immutable-subject-claims-for-github-actions-oidc-tokens/">GitHub changed its subject claims</a>, I added our organisation's immutable ID to the trust policies rather than a wider wildcard.
+      - Over 70 of our repositories use the composite GitHub Actions I built in Bash for CI/CD, including ones that push Docker images to ECR and authenticate Poetry to CodeArtifact.
+      - I built our deployment pipeline and designed each release as a fixed set of immutable images, so production receives only what we tested in UAT. I run our UAT and production deployments.
+      - I wrote the framework that the engineering team uses to test every AI worker's non-deterministic outputs, by asserting the expected shape and values within a tolerance. I traced intermittent test failures to parallel processes racing on our SDK's token cache, and <a href="https://github.com/digiLab-ai/uncertainty-engine-sdk/pull/252">fixed the SDK to write its cache atomically</a>, which stopped the failures.
+      - I cut developers' wait to test a change against real workflows from up to an hour to seconds by proposing and building a Bash script, with supporting infrastructure, that starts AI workers locally and registers them in cloud environments. I teach it in workshops, so most forward-deployed engineers now build experimental workers without help.
 
   - dates:
       from: July 2019

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="202611200800.css">
+    <link rel="stylesheet" href="202611200940.css">
 
     <title>{{ name }} - CV</title>
   </head>
@@ -54,7 +54,7 @@
       {% endfor %}
 
       {% set pdf = name ~ " (" ~ now("Europe/London").strftime("%Y-%m-%d %H-%M") ~ ").pdf" %}
-      <p class="pdf">PDF: <a href="{{ pdf | urlencode }}">download</a></p>
+      <p class="pdf"><a href="{{ pdf | urlencode }}">Download as a PDF</a></p>
 
       <h2>Work Experience</h2>
 
@@ -70,17 +70,21 @@
               <h3>{{ employment.title }}</h3>
               <p class="organisation">{{ employment.name }}{% if employment.location is defined %}, {{ employment.location }}{% endif %}</p>
 
-              {% for project in employment.projects | default([]) %}
-                <div class="project">
-                  <h4 class="screen-only">{{ project.title }}</h4>
-
-                  {% for p in project.content.splitlines() %}
-                    <p>{% if loop.first %}<strong class="print-only">{{ project.title }}. </strong>{% endif %}{{ p | safe }}</p>
-                  {% endfor %}
-
-                  <p class="tags">{% for tag in project.tags %}<span class="tag">{{ tag | safe }}</span>{% if not loop.last %}<span class="sep">, </span>{% endif %}{% endfor %}</p>
-                </div>
+              {% for p in (employment.content | default("")).splitlines() %}
+                <p>{{ p | safe }}</p>
               {% endfor %}
+
+              {% if employment.highlights is defined %}
+                <ul class="highlights">
+                  {% for highlight in employment.highlights %}
+                    <li>{{ highlight | safe }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+
+              {% if employment.tags is defined %}
+                <p class="tags">{% for tag in employment.tags %}<span class="tag">{{ tag | safe }}</span>{% if not loop.last %}<span class="sep">, </span>{% endif %}{% endfor %}</p>
+              {% endif %}
             </div>
 
           </section>
