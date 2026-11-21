@@ -37,9 +37,13 @@ employments:
   - dates:
       from: July 2019
       to: January 2025
-    name: Self-employed
-    title: Contract Software Engineer
-    location: Remote, United Kingdom
+    name: Sole Trader
+    title: Self-employed Software Engineer
+    location: Exmouth, Devon, United Kingdom
+    content: |-
+      After 14 years at Thomson Reuters, I chose to take a career break with a few contracts. I pursued indie video game development, and learned art and music to make my own media.
+      At <a href="https://freyda.io/">Freyda</a>—a Google-backed fintech SaaS startup—I planned and built AWS architecture with the CTO, built CI/CD in GitLab CI, wrote Python services for Fargate and Lambda, and led the fixes for third-party penetration test findings. I contracted there part-time, on and off until 2024.
+      At <a href="https://digital.nhs.uk/">NHS Digital</a> in 2020, I was contracted for six weeks to get a life-critical SOAP service's migration from C# .NET Framework to .NET Core over the line. We completed it on time, and I wrote its integration tests on my own initiative.
 
   - dates:
       from: May 2005
