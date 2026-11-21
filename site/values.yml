@@ -49,8 +49,18 @@ employments:
       from: May 2005
       to: July 2019
     name: Thomson Reuters Tax & Accounting
-    title: Senior Software Engineer
+    title: Software Team Lead
     location: Exmouth, Devon, United Kingdom
+    content: |-
+      I joined <a href="https://tax.thomsonreuters.com/en/onesource">Thomson Reuters</a> as a junior software engineer building Windows desktop applications. I rose to senior engineer, then in 2015 to Software Team Lead, where I was technical lead of our migration to web applications in AWS, and later of the Tax &amp; Accounting Global DevOps team.
+    highlights:
+      - I built and supported microservices in C#, Node.js, and Go, and helped to plan our private cloud SaaS architecture.
+      - I led a DevOps team of ~5 engineers that migrated our platform from private cloud to AWS. I was jointly responsible with a Principal Engineer for reaching production within a year, and we went live on time in 2016.
+      - I planned the AWS architecture for the migration, wrote infrastructure as code in Terraform, TypeScript, Python, and PowerShell, and built CI/CD pipelines in Jenkins. Provisioning an environment went from weeks to hours. Deploying code went from weeks to minutes, because my pipelines replaced the manual intervention our private cloud needed.
+      - We kept RabbitMQ rather than move to SQS. Our code already used it and the team knew it, so it was worth the extra administration.
+      - My team was the first in the company to use AWS, so I published what I learned on my internal blog and made weekly videos on the migration's progress. Engineers outside my project took an interest, and I was invited to speak across the UK and USA. I also presented the migration at AWS User Groups in London and Nottingham.
+      - I led a global DevOps team of ~10 engineers across the UK, USA, and India—a role I was invited into after the migration succeeded. We wrote disaster recovery runbooks, defined multi-tenancy practices, and built scripts to manage secrets. Other teams used our runbooks, adopted secrets management with our tools, and took their own projects into production.
+      - I was a UK lead of Thomson Reuters' global Pride at Work LGBTQ+ network, and presented a talk with our global leadership at the Out &amp; Equal Workplace Summit in Baltimore in 2012.
 
 education:
   - dates:
@@ -58,8 +68,3 @@ education:
       to: Month YYYY
     qualification: Qualification
     institution: Institution
-
-certifications:
-  - name: Certification
-    issuer: Issuer
-    date: Month YYYY
